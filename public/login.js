@@ -27,5 +27,3 @@ form.addEventListener("submit", async (e) => {
     console.log(err.message);
   }
 });
-
-console.log("FUCKKKKK!!!!");
