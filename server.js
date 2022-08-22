@@ -3,35 +3,19 @@ const path = require("path");
 const app = express();
 const cors = require("cors");
 const PORT = 5500;
-const MongoClient = require("mongodb").MongoClient;
-const connectDB = require("./db");
+const mongoose = require("mongoose");
+const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
 const { adminAuth, userAuth } = require("./middleware/auth.js");
 app.set("view engine", "ejs");
-require("dotenv").config();
+require("dotenv").config({ path: "./config/.env" });
 
 app.use(cors());
 
-// DECLARED DB VARIABLES
-let db,
-  dbConnectionStr = process.env.DB_STRING,
-  dbName = "dogCentral";
-
-// // CONNECT TO MONGO
-MongoClient.connect(dbConnectionStr).then((client) => {
-  console.log(`Connected to ${dbName} Database`);
-  db = client.db(dbName);
-});
-
 connectDB();
 
-// connectDB().then((connection) => {
-//   db = connection.db;
-//   dbConnectionStr = connection.dbConnectionStr;
-// });
-
 // SET MIDDLEWARE
-app.use(express.static("./public"));
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
@@ -82,9 +66,11 @@ app.get("/view-feedbacks", function (req, res) {
   });
 });
 
-const server = app.listen(process.env.PORT || PORT, () => {
-  console.log(`Server is running.`);
-});
+//Start Server
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// const server = app.listen(process.env.PORT || PORT, () => {
+//   console.log(`Server is running.`);
+// });
 
 process.on("unhandledRejection", (err) => {
   console.log(`An error occurred: ${err.message}`);
