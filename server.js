@@ -6,9 +6,10 @@ const PORT = 5500;
 const mongoose = require("mongoose");
 const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
-const { adminAuth, userAuth } = require("./middleware/auth.js");
+
 app.set("view engine", "ejs");
 require("dotenv").config({ path: "./config/.env" });
+const { adminAuth, userAuth } = require("./middleware/auth.js");
 
 app.use(cors());
 
@@ -38,10 +39,6 @@ app.get("/logout", (req, res) => {
 app.get("/admin", adminAuth, (req, res) => res.render("admin"));
 app.get("/basic", userAuth, (req, res) => res.render("user"));
 
-// const server = app.listen(PORT, () =>
-//   console.log(`Server Connected to port ${PORT}`)
-// );
-
 // CRUD METHODS
 app.post("/add-pet", (request, response) => {
   console.log("Post Heard");
@@ -68,9 +65,6 @@ app.get("/view-feedbacks", function (req, res) {
 
 //Start Server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-// const server = app.listen(process.env.PORT || PORT, () => {
-//   console.log(`Server is running.`);
-// });
 
 process.on("unhandledRejection", (err) => {
   console.log(`An error occurred: ${err.message}`);

@@ -23,7 +23,7 @@ form.addEventListener("submit", async (e) => {
     }
     data.role === "admin"
       ? location.assign("/admin")
-      : location.assign("/basic");
+      : location.assign("/Basic");
   } catch (err) {
     console.log(err.message);
   }

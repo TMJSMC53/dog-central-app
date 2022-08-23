@@ -20,7 +20,8 @@
   --fs-400: 0.875rem;
   --fs-500: 1rem;
   --fs-600: 1.875rem;
-  --fs-600: 2.5rem;
+  --fs-700: 2.5rem;
+  --fs-750: 3.5rem;
 }
 
 /* https://piccalil.li/blog/a-modern-css-reset/ */
@@ -53,12 +54,15 @@ html:focus-within {
 html,
 body {
   height: 100%;
+  font-size: 62.5%;
 }
 
 /* Set core body defaults */
 body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: var(--ff-primary);
+  font-size: 1.4rem;
 }
 
 /* A elements that don't have a class get default styles */
@@ -72,6 +76,10 @@ picture,
 svg {
   max-width: 100%;
   display: block;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
@@ -90,6 +98,59 @@ svg {
   }
 }
 
+/* utilities */
+.container {
+  margin: 1.25rem 1rem;
+}
+
+/* text color */
+.accent-400 {
+  color: var(--clr-accent-400);
+}
+.accent-100 {
+  color: var(--clr-accent-100);
+}
+.text-primary {
+  color: var(--clr-primary-400);
+}
+.text-neutral-100 {
+  color: var(--clr-neutral-100);
+}
+.text-neutral-900 {
+  color: var(--clr-neutral-900);
+}
+
+/* font weights */
+.fw-regular {
+  font-weight: var(--fw-regular);
+}
+.fw-semi-bold {
+  font-weight: var(--fw-semi-bold);
+}
+.fw-bold {
+  font-weight: var(--fw-bold);
+}
+
+/* font sizes */
+.fs-300 {
+  font-size: var(--fs-300);
+}
+.fs-400 {
+  font-size: var(--fs-400);
+}
+.fs-500 {
+  font-size: var(--fs-500);
+}
+.fs-600 {
+  font-size: var(--fs-600);
+}
+.fs-700 {
+  font-size: var(--fs-700);
+}
+.fs-750 {
+  font-size: var(--fs-750);
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -103,4 +164,57 @@ form {
   text-align: center;
   color: var(--clr-accent-100);
   opacity: 0.3;
+}
+
+/* navbar */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 3rem;
+}
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-outline {
+  padding: 0.81rem 1rem;
+  border: 1px solid var(--clr-accent-400);
+  border-radius: 8px;
+}
+
+.hero-container {
+  min-height: 60vh;
+  border: 2px solid var(--clr-accent-400);
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+h1 {
+  /* text-align: right; */
+  padding-top: 2rem;
+}
+
+.img-box {
+}
+
+.banner-img {
+  display: block;
+  /* width: 85%;
+  height: auto; */
+  object-fit: contain;
+}
+
+.attribution {
+  color: lightgrey;
 }
