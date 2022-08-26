@@ -6,7 +6,7 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
   display.textContent = "";
   try {
-    const res = await fetch("/api/auth/register", {
+    const res = await fetch("/auth/register", {
       method: "POST",
       body: JSON.stringify({
         username: username.value,
@@ -23,7 +23,7 @@ form.addEventListener("submit", async (e) => {
     }
     data.role === "admin"
       ? location.assign("/admin")
-      : location.assign("/Basic");
+      : location.assign("/basic");
   } catch (err) {
     console.log(err.message);
   }

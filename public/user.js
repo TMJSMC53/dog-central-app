@@ -1,6 +1,6 @@
 const ul = document.querySelector("ul");
 const getUsers = async () => {
-  const res = await fetch("/api/auth/getUsers");
+  const res = await fetch("/auth/getUsers");
   const data = await res.json();
   data.user.map((mappedUser) => {
     if (mappedUser.username !== "admin") {

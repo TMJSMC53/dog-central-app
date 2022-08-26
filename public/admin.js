@@ -1,7 +1,7 @@
 const ul = document.querySelector("ul");
 const display = document.querySelector(".display");
 const getUsers = async () => {
-  const res = await fetch("/api/auth/getUsers");
+  const res = await fetch("/auth/getUsers");
   const data = await res.json();
   data.user.map((mappedUser) => {
     if (mappedUser.username !== "admin") {
@@ -16,7 +16,7 @@ const getUsers = async () => {
       button.addEventListener("click", async () => {
         display.textContent = "";
         const id = data.user[i].id;
-        const res = await fetch("/api/auth/update", {
+        const res = await fetch("/auth/update", {
           method: "PUT",
           body: JSON.stringify({ role: "admin", id }),
           headers: { "Content-Type": "application/json" },
@@ -29,14 +29,14 @@ const getUsers = async () => {
             dataUpdate.error ? dataUpdate.error : ""
           }`);
         }
-        location.assign("/admin");
+        location.assign("/auth/admin");
       });
     });
     deleteUser.forEach((button, i) => {
       button.addEventListener("click", async () => {
         display.textContent = "";
         const id = data.user[i].id;
-        const res = await fetch("/api/auth/deleteUser", {
+        const res = await fetch("/auth/deleteUser", {
           method: "DELETE",
           body: JSON.stringify({ id }),
           headers: { "Content-Type": "application/json" },
@@ -49,7 +49,7 @@ const getUsers = async () => {
             dataUpdate.error ? dataUpdate.error : ""
           }`);
         }
-        location.assign("/admin");
+        location.assign("/auth/admin");
       });
     });
   });

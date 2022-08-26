@@ -6,7 +6,7 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
   display.textContent = "";
   try {
-    const res = await fetch("/api/auth/login", {
+    const res = await fetch("/auth/login", {
       method: "POST",
       body: JSON.stringify({
         username: username.value,
@@ -14,6 +14,7 @@ form.addEventListener("submit", async (e) => {
       }),
       headers: { "Content-Type": "application/json" },
     });
+
     const data = await res.json();
     if (res.status === 400 || res.status === 401) {
       return (display.textContent = `${data.message}. ${
@@ -21,8 +22,8 @@ form.addEventListener("submit", async (e) => {
       }`);
     }
     data.role === "admin"
-      ? location.assign("/admin")
-      : location.assign("/basic");
+      ? location.assign("/auth/admin")
+      : location.assign("/auth/basic");
   } catch (err) {
     console.log(err.message);
   }
