@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const Owner = require("../models/Owner");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
@@ -6,32 +6,31 @@ require("dotenv").config();
 const jwtSecret = process.env.JWT_SECRET;
 
 exports.register = async (req, res, next) => {
-  const { username, password } = req.body;
+  const { username, password, lastName, firstName } = req.body;
+  // TODO receive firstName here
   if (password.length < 6) {
     return res.status(400).json({ message: "Password less than 6 characters" });
   }
   bcrypt.hash(password, 10).then(async (hash) => {
-    await User.create({
+    await Owner.create({
       username,
       password: hash,
+      firstName,
+      lastName,
+      // TODO add firstName and lastName here
     })
       .then((user) => {
         const maxAge = 3 * 60 * 60;
-        const token = jwt.sign(
-          { id: user._id, username, role: user.role },
-          jwtSecret,
-          {
-            expiresIn: maxAge, // 3hrs
-          }
-        );
+        const token = jwt.sign({ id: user._id, username }, jwtSecret, {
+          expiresIn: maxAge, // 3hrs
+        });
         res.cookie("jwt", token, {
           httpOnly: true,
           maxAge: maxAge * 1000,
         });
         res.status(201).json({
           message: "User successfully created",
-          user: user._id,
-          role: user.role,
+          owner: user._id,
         });
       })
       .catch((error) =>
@@ -55,7 +54,7 @@ exports.login = async (req, res, next) => {
   }
 
   try {
-    const user = await User.findOne({ username });
+    const user = await Owner.findOne({ username });
     if (!user) {
       res.status(400).json({
         message: "Login unsuccessful",
@@ -70,7 +69,8 @@ exports.login = async (req, res, next) => {
             {
               id: user._id,
               username,
-              role: user.role,
+              firstName,
+              // todo - add names here
             },
             jwtSecret,
             {
@@ -83,8 +83,6 @@ exports.login = async (req, res, next) => {
           });
           res.status(201).json({
             message: "User successfully logged in",
-            user: user._id,
-            role: user.role,
           });
         } else {
           res.status(400).json({ message: "login not successful" });
@@ -97,77 +95,4 @@ exports.login = async (req, res, next) => {
       error: error.message,
     });
   }
-};
-
-exports.update = async (req, res, next) => {
-  const { role, id } = req.body;
-  // Verifying if role and id is present
-  if (role && id) {
-    // Verifying if the value of role is admin
-    if (role === "admin") {
-      // Finds the user with the id
-      await User.findById(id)
-        .then((user) => {
-          // Verifies the user is not an admin
-          if (user.role !== "admin") {
-            user.role = role;
-            user.save((err) => {
-              //Monogodb error checker
-              if (err) {
-                res.status(400).json({
-                  message: "An error occurred",
-                  error: err.message,
-                });
-                process.exit(1);
-              }
-              res.status(200).json({ message: "update successful", user });
-            });
-          } else {
-            res.status(400).json({ message: "User is already an Admin" });
-          }
-        })
-        .catch((error) => {
-          res
-            .status(400)
-            .json({ message: "An error occurred", error: error.message });
-        });
-    } else {
-      res.status(400).json({ message: "Role is not admin" });
-    }
-  } else {
-    res.status(400).json({
-      message: "Role or ID not present",
-    });
-  }
-};
-
-exports.deleteUser = async (req, res, next) => {
-  const { id } = req.body;
-  await User.findById(id)
-    .then((user) => user.remove())
-    .then((user) =>
-      res.status(201).json({ message: "User successfully deleted", user })
-    )
-    .catch((error) =>
-      res
-        .status(400)
-        .json({ message: "An error occurred", error: error.message })
-    );
-};
-
-exports.getUsers = async (req, res, next) => {
-  await User.find({})
-    .then((users) => {
-      const userFunction = users.map((user) => {
-        const container = {};
-        container.username = user.username;
-        container.role = user.role;
-        container.id = user._id;
-        return container;
-      });
-      res.status(200).json({ user: userFunction });
-    })
-    .catch((err) => {
-      res.status(401).json({ message: "not successful", error: err.message });
-    });
 };

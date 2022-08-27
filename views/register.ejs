@@ -4,20 +4,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Register Page</title>
+  <title>Sign Up</title>
 </head>
 
 <body>
-  <h1>Register Page</h1>
+  <h1>Sign Up</h1>
   <form>
     <div class="error" style="background-color: red;"></div><br>
+    <label for="firstName">First Name</label><br>
+    <input type="text" id="firstName" required><br>
+    <label for="lastName">Last Name</label><br>
+    <input type="text" id="lastName" required><br>
     <label for="username">Username</label><br>
     <input type="text" id="username" required /><br>
     <label for="password">Password</label><br>
     <input type="password" id="password" required><br>
-    <input type="submit" value="register"><br>
+    <input type="submit" value="Register" class="register-btn"><br>
   </form>
-  <a href="/auth/login">Already registered? Login</a>
+  <a href="/auth/login">Already have an account? Sign in</a>
 
   <script src="/register.js"></script>
 </body>

@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
-  <title>Home page</title>
+  <title>Dashboard</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
     <nav>
       <a href="#" class="logo text-primary fw-bold"><span class="accent-400">Dog</span>Central</a>
       <ul class="nav-links">
-        <a class="nav-link btn" href="/auth/register"> Sign up</a> <br />
+        <a class="nav-link btn" href="/auth/register"> Register</a> <br />
         <a class="nav-link btn btn-outline" href="/auth/login">Login</a>
       </ul>
 
@@ -23,16 +23,14 @@
   <main class="container">
     <!-- template end -->
 
-    <section class="hero-container">
-      <div class="img-box">
-        <img class="banner-img"
-          src="https://img.freepik.com/free-vector/friend-walking-with-pets-meeting-waving-hello-women-with-dog-cat-outside-flat-illustration_74855-10668.jpg?w=2000"
-          alt="women with dogs">
-      </div>
-      <h1 class="fs-750">Welcome to Dog Central</h1>
+    <!-- TODO - show username here -->
+    <h1>Hello, <%= ownerName.firstName %>
+    </h1>
+    <ul></ul>
+    <button class="logout"> <a href="/auth/logout">Log Out</a></button>
 
-    </section>
 
+    <!-- Pet Form -->
     <!-- template begine -->
   </main>
 </body>

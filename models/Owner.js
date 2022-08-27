@@ -1,5 +1,5 @@
 const Mongoose = require("mongoose");
-const UserSchema = new Mongoose.Schema({
+const OwnerSchema = new Mongoose.Schema({
   username: {
     type: String,
     unique: true,
@@ -10,13 +10,16 @@ const UserSchema = new Mongoose.Schema({
     minlength: 6,
     required: true,
   },
-  role: {
+  firstName: {
     type: String,
-    default: "Basic",
+    required: true,
+  },
+  lastName: {
+    type: String,
     required: true,
   },
 });
 
-const User = Mongoose.model("user", UserSchema);
+const Owner = Mongoose.model("owner", OwnerSchema, "owners");
 
-module.exports = User;
+module.exports = Owner;

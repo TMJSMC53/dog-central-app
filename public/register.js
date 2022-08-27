@@ -1,6 +1,8 @@
 const form = document.querySelector("form");
 const username = document.querySelector("#username");
 const password = document.querySelector("#password");
+const firstName = document.querySelector("#firstName");
+const lastName = document.querySelector("#lastName");
 const display = document.querySelector(".error");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -9,6 +11,8 @@ form.addEventListener("submit", async (e) => {
     const res = await fetch("/auth/register", {
       method: "POST",
       body: JSON.stringify({
+        firstName: firstName.value,
+        lastName: lastName.value,
         username: username.value,
         password: password.value,
       }),
@@ -21,9 +25,9 @@ form.addEventListener("submit", async (e) => {
         data.error ? data.error : ""
       }`);
     }
-    data.role === "admin"
-      ? location.assign("/admin")
-      : location.assign("/basic");
+    // data.role === "admin"
+    //   ? location.assign("/admin")
+    //   : location.assign("/basic");
   } catch (err) {
     console.log(err.message);
   }
