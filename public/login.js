@@ -24,9 +24,8 @@ form.addEventListener("submit", async (e) => {
     /*data.role === "admin"
       ? location.assign("/auth/admin")
       : location.assign("/auth/basic");*/
-    if (data.username === "username" && data.password) {
-      location.assign("/auth/dashboard");
-    }
+
+    location.assign("/auth/dashboard");
   } catch (err) {
     console.log(err.message);
   }

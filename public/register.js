@@ -25,6 +25,7 @@ form.addEventListener("submit", async (e) => {
         data.error ? data.error : ""
       }`);
     }
+    location.assign("/auth/dashboard");
     // data.role === "admin"
     //   ? location.assign("/admin")
     //   : location.assign("/basic");
