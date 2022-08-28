@@ -3,7 +3,7 @@ const router = express.Router();
 const { register, login } = require("../controllers/auth");
 const { ownerAuth } = require("../middleware/auth.js");
 
-//router.route("/register").post(register);
+router.route("/register").post(register);
 router.post("/register", register);
 router.route("/login").post(login);
 

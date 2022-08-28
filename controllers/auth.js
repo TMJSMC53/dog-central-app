@@ -6,7 +6,7 @@ require("dotenv").config();
 const jwtSecret = process.env.JWT_SECRET;
 
 exports.register = async (req, res, next) => {
-  const { username, password, lastName, firstName } = req.body;
+  const { username, password, firstName, lastName } = req.body;
   // TODO receive firstName here
   if (password.length < 6) {
     return res.status(400).json({ message: "Password less than 6 characters" });

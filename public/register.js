@@ -11,13 +11,13 @@ form.addEventListener("submit", async (e) => {
     const res = await fetch("/auth/register", {
       method: "POST",
       body: JSON.stringify({
-        firstName: firstName.value,
-        lastName: lastName.value,
         username: username.value,
         password: password.value,
       }),
+
       headers: { "Content-Type": "application/json" },
     });
+    console.log(username);
     const data = await res.json();
     console.log(data);
     if (res.status === 400 || res.status === 401) {

@@ -1,5 +1,13 @@
 const Mongoose = require("mongoose");
 const OwnerSchema = new Mongoose.Schema({
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
   username: {
     type: String,
     unique: true,
@@ -8,14 +16,6 @@ const OwnerSchema = new Mongoose.Schema({
   password: {
     type: String,
     minlength: 6,
-    required: true,
-  },
-  firstName: {
-    type: String,
-    required: true,
-  },
-  lastName: {
-    type: String,
     required: true,
   },
 });
