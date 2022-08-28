@@ -1,25 +1,29 @@
 const form = document.querySelector("form");
-const username = document.querySelector("#username");
-const password = document.querySelector("#password");
-const firstName = document.querySelector("#firstName");
-const lastName = document.querySelector("#lastName");
+const name = document.querySelector("#petName");
+const breed = document.querySelector("#breed");
+const birthday = document.querySelector("#birthday");
+const image = document.querySelector("#image");
+const weight = document.querySelector("#weight");
 const display = document.querySelector(".error");
+
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
   display.textContent = "";
+
   try {
-    const res = await fetch("/auth/register", {
+    const res = await fetch("/auth/pet", {
       method: "POST",
       body: JSON.stringify({
-        username: username.value,
-        password: password.value,
-        firstName: firstName.value,
-        lastName: lastName.value,
+        petName: petName.value,
+        breed: breed.value,
+        birthday: birthday.value,
+        image: image.value,
+        weight: weight.value,
       }),
 
       headers: { "Content-Type": "application/json" },
     });
-    console.log(username);
+    console.log(petName);
     const data = await res.json();
     console.log(data);
     if (res.status === 400 || res.status === 401) {

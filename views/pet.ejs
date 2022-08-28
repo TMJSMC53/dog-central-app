@@ -1,0 +1,14 @@
+<h2>Register your pet below:</h2>
+<form method="POST" action="/pet">
+  <div class="error" style="background-color: red;"></div><br>
+  <%# for each opening %>
+    <label>Name: <input type="text" name="petName" id="petName" required></label>
+    <label>Breed: <input type="text" name="breed" required></label>
+    <label>Birthday: <input type="date" name="birthday" id="birthday" required></label>
+    <label>Photo: <input type="file" id="image" name="image" alt="Insert photo of your pet" required></label>
+    <label>Weight: <input type="number" name="weight" id="weight" step="0.01" placeholder="Enter weight in kilograms"
+        required></label>
+    <%# for each closing %>
+      <input type="submit" value="Submit">
+</form>
+<script src="/pet.js"></script>

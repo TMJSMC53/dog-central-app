@@ -1,4 +1,5 @@
 const Owner = require("../models/Owner");
+const Pet = require("../models/Pet");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
@@ -21,9 +22,18 @@ exports.register = async (req, res, next) => {
     })
       .then((user) => {
         const maxAge = 3 * 60 * 60;
-        const token = jwt.sign({ id: user._id, username }, jwtSecret, {
-          expiresIn: maxAge, // 3hrs
-        });
+        const token = jwt.sign(
+          {
+            id: user._id,
+            username: username,
+            firstName: firstName,
+            lastName: lastName,
+          },
+          jwtSecret,
+          {
+            expiresIn: maxAge, // 3hrs
+          }
+        );
         res.cookie("jwt", token, {
           httpOnly: true,
           maxAge: maxAge * 1000,
@@ -68,9 +78,9 @@ exports.login = async (req, res, next) => {
           const token = jwt.sign(
             {
               id: user._id,
-              username,
-              firstName,
-              // todo - add names here
+              username: user.username,
+              firstName: user.firstName,
+              lastName: user.lastName,
             },
             jwtSecret,
             {

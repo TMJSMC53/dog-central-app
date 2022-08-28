@@ -32,7 +32,7 @@ app.get("/", (req, res) => res.render("homepage"));
 app.use("/auth", authRoutes);
 
 // CRUD METHODS
-app.post("/add-pet", (request, response) => {
+app.post("/pet", (request, response) => {
   console.log("Post Heard");
 
   db.collection("pets")
