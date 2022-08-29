@@ -5,11 +5,11 @@ const PetSchema = new Mongoose.Schema({
     required: true,
   },
   owner_pet_id: {
-    type: Number,
+    type: String,
     required: true,
   },
   pet_vaccine_id: {
-    type: Number,
+    type: String,
     required: true,
   },
   breed: {
@@ -20,7 +20,7 @@ const PetSchema = new Mongoose.Schema({
     type: Date,
     required: true,
   },
-  photo: {
+  image: {
     type: String,
     required: true,
   },

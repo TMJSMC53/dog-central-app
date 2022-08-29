@@ -1,5 +1,5 @@
 const Owner = require("../models/Owner");
-const Pet = require("../models/Pet");
+
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();

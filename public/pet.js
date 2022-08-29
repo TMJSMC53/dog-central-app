@@ -14,7 +14,7 @@ form.addEventListener("submit", async (e) => {
     const res = await fetch("/auth/pet", {
       method: "POST",
       body: JSON.stringify({
-        petName: petName.value,
+        name: petName.value,
         breed: breed.value,
         birthday: birthday.value,
         image: image.value,

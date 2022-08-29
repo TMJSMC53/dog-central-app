@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { register, login } = require("../controllers/auth");
 const { ownerAuth } = require("../middleware/auth.js");
+const Pet = require("../models/Pet");
 
 router.post("/register", register);
 router.post("/login", login);
@@ -16,11 +17,12 @@ router.get("/logout", (req, res) => {
 // ownerAuth
 //  added owner to request
 
-router.get("/dashboard", ownerAuth, (req, res) =>
-  res.render("dashboard", { ownerName: req.owner })
-);
-router.get("/pet", ownerAuth, (req, res) =>
-  res.render("pet", { ownerName: req.owner })
-);
+router.get("/dashboard", ownerAuth, async (req, res) => {
+  let pets = await Pet.find({ owner_pet_id: req.owner.id });
+  res.render("dashboard", {
+    ownerName: req.owner,
+    petInfo: pets,
+  });
+});
 
 module.exports = router;
