@@ -8,10 +8,6 @@ const PetSchema = new Mongoose.Schema({
     type: String,
     required: true,
   },
-  pet_vaccine_id: {
-    type: String,
-    required: true,
-  },
   breed: {
     type: String,
     required: true,
@@ -26,14 +22,6 @@ const PetSchema = new Mongoose.Schema({
   },
   weight: {
     type: Number,
-    required: true,
-  },
-  chip: {
-    type: Boolean,
-    required: true,
-  },
-  applied_vaccine: {
-    type: Date,
     required: true,
   },
 });

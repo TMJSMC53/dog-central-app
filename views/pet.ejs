@@ -1,5 +1,5 @@
 <h2>Register your pet below:</h2>
-<form method="POST" action="/pet">
+<form method="POST" action="pet/createPet">
   <div class="error" style="background-color: red;"></div><br>
   <label>Name: <input type="text" name="petName" value="name" id="petName" required></label>
   <label>Breed: <input type="text" name="breed" value="breed" required></label>
@@ -8,7 +8,7 @@
       required></label>
   <label>Weight: <input type="number" name="weight" id="weight" value="weight" placeholder="Enter weight in kilograms"
       step="0.01" required></label>
-
+  <label>Chip: <input type="type" name="chip" value="chip" id="chip" required></label>
   <input type="submit" value="Submit">
 </form>
 
@@ -24,6 +24,15 @@
         </section>
         <section class="pet-list__item--birthday">
           <%=pet.birthday %>
+        </section>
+        <section class="pet-list__item--image">
+          <%=pet.image %>
+        </section>
+        <section class="pet-list__item--weight">
+          <%=pet.weight %>
+        </section>
+        <section class="pet-list__item--chip">
+          <%=pet.chip %>
         </section>
       </li>
       <% })%>

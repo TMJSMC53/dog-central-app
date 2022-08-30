@@ -35,19 +35,6 @@ app.use("/auth", authRoutes);
 app.use("/dashboard", addPetRoutes);
 app.use("/dashboard", editPetRoutes);
 
-// CRUD METHODS
-// app.post("/pet", (request, response) => {
-//   console.log("Post Heard");
-
-//   db.collection("pets")
-//     .insertOne(request.body)
-//     .then((result) => {
-//       console.log(result);
-//     });
-
-//   response.send("Data received:\n" + JSON.stringify(request.body));
-// });
-
 // app.get("/view-feedbacks", function (req, res) {
 //   dbConnectionStr.then((db) => {
 //     db.collection("pets")
