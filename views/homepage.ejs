@@ -10,13 +10,26 @@
 
 <body>
   <header class="container">
-    <nav>
+    <div id="overlay" class="overlay hidden"></div>
+    <section class="menu">
       <a href="#" class="logo text-primary fw-bold"><span class="accent-400">Dog</span>Central</a>
-      <ul class="nav-links">
-        <a class="nav-link btn" href="/auth/register"> Sign up</a> <br />
-        <a class="nav-link btn btn-outline" href="/auth/login">Login</a>
-      </ul>
+      <img src="/images/icon-menu.svg" class="menu__open" alt="hamburger menu icon">
+    </section>
+    <nav class="navigation">
 
+      <aside class="sidebar hidden" id="sidebar">
+        <img src="/images/icon-close-menu.svg" class="menu__close" alt="hamburger menu close icon">
+
+        <ul class="nav-links">
+          <a class="nav-link accent-400" href="#">Home</a>
+          <a class="nav-link accent-400" href="#">About Us</a>
+          <a class="nav-link accent-400" href="#">Contact</a>
+        </ul>
+        <section class="login__btns">
+          <a class="btn nav-link accent-400" href="/auth/register"> Sign up</a> <br />
+          <a class="btn-outline nav-link accent-100" href="/auth/login">Login</a>
+        </section>
+      </aside>
     </nav>
   </header>
 
@@ -24,17 +37,15 @@
     <!-- template end -->
 
     <section class="hero-container">
-      <div class="img-box">
-        <img class="banner-img"
-          src="https://img.freepik.com/free-vector/friend-walking-with-pets-meeting-waving-hello-women-with-dog-cat-outside-flat-illustration_74855-10668.jpg?w=2000"
-          alt="women with dogs">
-      </div>
-      <h1 class="fs-750">Welcome to Dog Central</h1>
-
+      <h1 class="fs-750">Welcome to <span class="d-block">Dog Central</span></h1>
+      <img class="banner-img"
+        src="https://img.freepik.com/free-vector/friend-walking-with-pets-meeting-waving-hello-women-with-dog-cat-outside-flat-illustration_74855-10668.jpg?w=2000"
+        alt="women with dogs">
     </section>
 
     <!-- template begine -->
   </main>
+  <script src="main.js"></script>
 </body>
 
 </html>
