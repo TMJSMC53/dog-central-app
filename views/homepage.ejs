@@ -9,28 +9,34 @@
 </head>
 
 <body>
-  <header class="container">
-    <div id="overlay" class="overlay hidden"></div>
-    <section class="menu">
+  <header class="primary-header flex container">
+
+    <section>
       <a href="#" class="logo text-primary fw-bold"><span class="accent-400">Dog</span>Central</a>
-      <img src="/images/icon-menu.svg" class="menu__open" alt="hamburger menu icon">
     </section>
-    <nav class="navigation">
 
-      <aside class="sidebar hidden" id="sidebar">
-        <img src="/images/icon-close-menu.svg" class="menu__close" alt="hamburger menu close icon">
+    <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only"
+        aria-expanded="false"></span></button>
 
-        <ul class="nav-links">
+    <nav>
+      <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+        <li class="active">
           <a class="nav-link accent-400" href="#">Home</a>
-          <a class="nav-link accent-400" href="#">About Us</a>
-          <a class="nav-link accent-400" href="#">Contact</a>
-        </ul>
-        <section class="login__btns">
+        </li>
+        <li><a class="nav-link accent-400" href="#">About Us</a>
+        </li>
+        <li><a class="nav-link accent-400" href="#">Contact</a>
+        </li>
+
+        <div class="login flex">
           <a class="btn nav-link accent-400" href="/auth/register"> Sign up</a> <br />
           <a class="btn-outline nav-link accent-100" href="/auth/login">Login</a>
-        </section>
-      </aside>
+        </div>
+      </ul>
+
+
     </nav>
+
   </header>
 
   <main class="container">
