@@ -1,37 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css">
+
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+
   <title>Dashboard</title>
 </head>
 
 <body>
   <header class="container">
-    <nav>
+    <nav class="navbar">
       <a href="#" class="logo text-primary fw-bold"><span class="accent-400">Dog</span>Central</a>
-      <ul class="nav-links">
-        <a class="nav-link btn" href="/auth/register"> Register</a> <br />
-        <a class="nav-link btn btn-outline" href="/auth/login">Login</a>
-      </ul>
 
+      <!-- TODO - show username here -->
+      <h2>Welcome Back, <%= ownerName.firstName %>
+      </h2>
+      <button class="logout"> <a href="/auth/logout">Log Out</a></button>
     </nav>
   </header>
 
   <main class="container">
     <!-- template end -->
 
-    <!-- TODO - show username here -->
-    <h1>Hello, <%= ownerName.firstName %>
-    </h1>
-    <ul></ul>
-    <button class="logout"> <a href="/auth/logout">Log Out</a></button>
+
 
     <!-- Pet Form -->
     <%- include('pet.ejs') %>
-      <!-- template begine -->
+      <!-- template begins -->
+
+      <div class="overflow-x-auto" data-theme="aqua">
+        <table class="table w-full">
+          <!-- head -->
+          <thead>
+            <tr>
+              <th></th>
+              <th>Name</th>
+              <th>Job</th>
+              <th>Favorite Color</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- row 1 -->
+            <tr>
+              <th>1</th>
+              <td>Cy Ganderton</td>
+              <td>Quality Control Specialist</td>
+              <td>Blue</td>
+            </tr>
+            <!-- row 2 -->
+            <tr class="hover">
+              <th>2</th>
+              <td>Hart Hagerty</td>
+              <td>Desktop Support Technician</td>
+              <td>Purple</td>
+            </tr>
+            <!-- row 3 -->
+            <tr>
+              <th>3</th>
+              <td>Brice Swyre</td>
+              <td>Tax Accountant</td>
+              <td>Red</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
   </main>
 </body>
 

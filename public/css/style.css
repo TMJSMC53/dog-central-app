@@ -199,21 +199,6 @@ a {
   font-size: var(--fs-800);
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-  border: 2px solid red;
-  width: 100%;
-  max-width: 250px;
-}
-::placeholder {
-  font-size: 0.8175rem;
-  text-align: center;
-  color: var(--clr-accent-100);
-  opacity: 0.3;
-}
-
 /* navbar */
 
 /* primary header */
@@ -263,6 +248,8 @@ form {
   letter-spacing: 4px;
   background: var(--clr-primary-400);
 }
+
+/* login page */
 
 @media (max-width: 35em) {
   .primary-navigation {

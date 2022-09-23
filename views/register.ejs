@@ -4,26 +4,79 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/style.css">
   <title>Sign Up</title>
 </head>
 
 <body>
-  <h1>Sign Up</h1>
-  <form>
-    <div class="error" style="background-color: red;"></div><br>
-    <label for="firstName">First Name</label><br>
-    <input type="text" id="firstName" required><br>
-    <label for="lastName">Last Name</label><br>
-    <input type="text" id="lastName" required><br>
-    <label for="username">Username</label><br>
-    <input type="text" id="username" required /><br>
-    <label for="password">Password</label><br>
-    <input type="password" id="password" required><br>
-    <input type="submit" value="Register" class="register-btn"><br>
+  <header class="primary-header flex container">
 
-  </form>
-  <a href="/auth/login">Already have an account? Sign in</a>
+    <section>
+      <a href="/" class="logo text-primary fw-bold"><span class="accent-400">Dog</span>Central</a>
+    </section>
 
+    <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only"
+        aria-expanded="false"></span></button>
+
+    <nav>
+      <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+        <li class="active">
+          <a class="nav-link accent-400" href="#">Home</a>
+        </li>
+        <li><a class="nav-link accent-400" href="#">About Us</a>
+        </li>
+        <li><a class="nav-link accent-400" href="#">Contact</a>
+        </li>
+        <!-- MODAL -->
+        <div id="login-modal" class="login-modal">
+          <div class="modal">
+            <div class="top-form">
+              <div class="close-modal">
+                <span class="fas fa-times"></span>
+              </div>
+            </div>
+            <div class="login-form">
+              <h2 class="text-primary">SIGN UP</h2>
+              <span class="text-primary">Please enter your information below</span>
+              <form method="POST" action="">
+                <section class="form-control">
+                  <div class="error" style="background-color: red;"></div><br>
+
+                  <input type="text" id="firstName" placeholder="First Name" required><br>
+                  <input type="text" id="lastName" placeholder="Last Name" required><br>
+                  <input type="text" id="username" placeholder="Username" required /><br>
+                  <input type="password" id="password" placeholder="Password" required><br>
+                  <button type="submit" class="btn-outline accent-400">Sign Up</button>
+                  <a href="/auth/login">Already have an account? Sign in</a>
+                </section>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="login flex">
+          <a class="btn nav-link accent-400" href="/auth/register"> Sign up</a> <br />
+          <a class="btn-outline nav-link accent-100" href="/auth/login">Login</a>
+        </div>
+      </ul>
+    </nav>
+
+  </header>
+
+  <main class="container">
+    <!-- template end -->
+
+    <section class="hero-container">
+      <h1 class="fs-750">Welcome to <span class="d-block">Dog Central</span></h1>
+      <img class="banner-img"
+        src="https://img.freepik.com/free-vector/friend-walking-with-pets-meeting-waving-hello-women-with-dog-cat-outside-flat-illustration_74855-10668.jpg?w=2000"
+        alt="women with dogs">
+    </section>
+
+    <!-- template begine -->
+  </main>
+
+  <script src="/main.js"></script>
   <script src="/register.js"></script>
 </body>
 
