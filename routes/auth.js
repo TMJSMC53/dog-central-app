@@ -1,15 +1,10 @@
 // Relative route: /auth
-
 const express = require("express");
 const router = express.Router();
 const { register, login } = require("../controllers/auth");
 const { ownerAuth } = require("../middleware/auth.js");
 const Pet = require("../models/Pet");
-const addPet = require("../controllers/add_pet");
 const editPet = require("../controllers/edit_pet");
-// const multer = require("multer");
-// const os = require("os");
-// const upload = multer({ dest: os.tmpdir() });
 
 router.post("/register", register);
 router.post("/login", login);
@@ -31,9 +26,5 @@ router.get("/dashboard", ownerAuth, async (req, res) => {
     petInfo: pets,
   });
 });
-
-// Pet routes
-router.post("/pet/createPet", ownerAuth, addPet.createPet);
-router.patch("/pet/editPet", editPet.editPet);
 
 module.exports = router;

@@ -9,5 +9,6 @@ const editPetController = require("../controllers/edit_pet");
 router.get("/:id", editPetController.editPet);
 router.get("/remove/:id", editPetController.deletePet);
 router.post("/:id", editPetController.updatePet);
+router.put("/pet/editPet", editPetController.editPet);
 
 module.exports = router;

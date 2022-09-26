@@ -1,11 +1,10 @@
 <h2>Register your pet below:</h2>
-<form method="POST" action="pet/createPet">
+<form method="POST" action="/pet/createPet" enctype="multipart/form-data">
   <div class="error" style="background-color: red;"></div><br>
   <label>Name: <input type="text" name="petName" value="name" id="petName" required></label>
   <label>Breed: <input type="text" name="breed" value="breed" required></label>
   <label>Birthday: <input type="date" name="birthday" value="birthday" id="birthday" required></label>
-  <label>Photo: <input type="file" id="image" name="image" value="image" alt="Insert photo of your pet"
-      required></label>
+  <label for="imgUpload">Photo: <input type="file" id="imageUpload" name="file" alt="Insert photo" required></label>
   <label>Weight: <input type="number" name="weight" id="weight" value="weight" placeholder="Enter weight in kilograms"
       step="0.01" required></label>
   <label>Chip: <input type="type" name="chip" value="chip" id="chip" required></label>
@@ -26,7 +25,7 @@
           <%=pet.birthday %>
         </section>
         <section class="pet-list__item--image">
-          <%=pet.image %>
+          <img src="<%=pet.image %>" alt="">
         </section>
         <section class="pet-list__item--weight">
           <%=pet.weight %>

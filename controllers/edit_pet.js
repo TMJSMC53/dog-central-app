@@ -7,7 +7,6 @@ module.exports = {
     Pet.find({}, (err, pets) => {
       res.rend("pet.ejs", {
         petInfo: info,
-
         petId: id,
       });
     });
