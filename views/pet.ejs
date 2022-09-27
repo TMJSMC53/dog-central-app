@@ -27,30 +27,57 @@
       <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
     </form>
   </section>
-  <ul class="pet-list">
-    <%# for each opening %>
-      <% petInfo.forEach(pet=> { %>
-        <li class="pet-list__item">
-          <section class="pet-list__item--image">
-            <img class="img" src="<%=pet.image %>" alt="Photo of <%= pet.name  %> ">
-          </section>
-          <section class="pet-list__item--name">
-            <%=pet.name %>
-          </section>
-          <section class="pet-list__item--breed">
-            <%=pet.breed %>
-          </section>
-          <section class="pet-list__item--birthday">
-            <%=pet.birthday %>
-          </section>
+  <div class="wrapper">
+    <ul class="pet-list">
+      <%# for each opening %>
+        <% petInfo.forEach(pet=> { %>
+          <li class="pet-list__item">
+            <section class="pet-list__item--image">
+              <img class="img" src="<%=pet.image %>" alt="Photo of <%= pet.name  %> ">
+            </section>
+            <section class="pet-list__item--name">
+              <%=pet.name %>
+            </section>
+            <section class="pet-list__item--breed">
+              <%=pet.breed %>
+            </section>
+            <section class="pet-list__item--birthday">
+              <%=pet.birthday %>
+            </section>
 
-          <section class="pet-list__item--weight">
-            <%=pet.weight %>
-          </section>
-        </li>
-        <% })%>
-          <%# for each closing %>
-  </ul>
+            <section class="pet-list__item--weight">
+              <%=pet.weight %>
+            </section>
+          </li>
+          <% })%>
+            <%# for each closing %>
+    </ul>
+
+    <ul class="vaccine-list">
+      <%# for each opening %>
+        <% petInfo.forEach(pet=> { %>
+          <li class="pet-list__item">
+            <section class="pet-list__item--image">
+              <img class="img" src="<%=pet.image %>" alt="Photo of <%= pet.name  %> ">
+            </section>
+            <section class="pet-list__item--name">
+              <%=pet.name %>
+            </section>
+            <section class="pet-list__item--breed">
+              <%=pet.breed %>
+            </section>
+            <section class="pet-list__item--birthday">
+              <%=pet.birthday %>
+            </section>
+
+            <section class="pet-list__item--weight">
+              <%=pet.weight %>
+            </section>
+          </li>
+          <% })%>
+            <%# for each closing %>
+    </ul>
+  </div>
 
   <script src="/pet.js"></script>
 </body>

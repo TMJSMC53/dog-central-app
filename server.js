@@ -10,6 +10,7 @@ const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/auth");
 const addPetRoutes = require("./routes/add_pet");
 const editPetRoutes = require("./routes/edit_pet");
+const vaccineRoutes = require("./routes/vaccine");
 
 app.set("view engine", "ejs");
 
@@ -33,6 +34,7 @@ app.get("/", (req, res) => res.render("homepage"));
 // Routes
 app.use("/auth", authRoutes);
 app.use("/pet", addPetRoutes);
+app.use("/vaccine", vaccineRoutes);
 app.use("/dashboard", editPetRoutes);
 
 //Start Server

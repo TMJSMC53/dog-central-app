@@ -4,6 +4,7 @@ const router = express.Router();
 const { register, login } = require("../controllers/auth");
 const { ownerAuth } = require("../middleware/auth.js");
 const Pet = require("../models/Pet");
+const Vaccine = require("../models/Vaccine");
 const editPet = require("../controllers/edit_pet");
 
 router.post("/register", register);
@@ -21,6 +22,11 @@ router.get("/logout", (req, res) => {
 
 router.get("/dashboard", ownerAuth, async (req, res) => {
   let pets = await Pet.find({ owner_pet_id: req.owner.id });
+  for (let pet of pets) {
+    let vaccines = await Vaccine.find({ _id: pet._id });
+
+    pet.vaccines = vaccines;
+  }
   res.render("dashboard", {
     ownerName: req.owner,
     petInfo: pets,
