@@ -1,40 +1,58 @@
-<h2>Register your pet below:</h2>
-<form method="POST" action="/pet/createPet" enctype="multipart/form-data">
-  <div class="error" style="background-color: red;"></div><br>
-  <label>Name: <input type="text" name="petName" value="name" id="petName" required></label>
-  <label>Breed: <input type="text" name="breed" value="breed" required></label>
-  <label>Birthday: <input type="date" name="birthday" value="birthday" id="birthday" required></label>
-  <label for="imgUpload">Photo: <input type="file" id="imageUpload" name="file" alt="Insert photo" required></label>
-  <label>Weight: <input type="number" name="weight" id="weight" value="weight" placeholder="Enter weight in kilograms"
-      step="0.01" required></label>
-  <label>Chip: <input type="type" name="chip" value="chip" id="chip" required></label>
-  <input type="submit" value="Submit">
-</form>
+<!DOCTYPE html>
+<html lang="en">
 
-<ul class="pet-list">
-  <%# for each opening %>
-    <% petInfo.forEach(pet=> { %>
-      <li class="pet-list__item">
-        <section class="pet-list__item--name">
-          <%=pet.name %>
-        </section>
-        <section class="pet-list__item--breed">
-          <%=pet.breed %>
-        </section>
-        <section class="pet-list__item--birthday">
-          <%=pet.birthday %>
-        </section>
-        <section class="pet-list__item--image">
-          <img src="<%=pet.image %>" alt="">
-        </section>
-        <section class="pet-list__item--weight">
-          <%=pet.weight %>
-        </section>
-        <section class="pet-list__item--chip">
-          <%=pet.chip %>
-        </section>
-      </li>
-      <% })%>
-        <%# for each closing %>
-</ul>
-<script src="pet.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/css/dashboard.css">
+  <title>Dog Central</title>
+</head>
+
+<body>
+  <h2>Register your pet below:</h2>
+  <button class="open-button" onclick="openForm()">Register Pet</button>
+  <section class="form-popup" id="myForm">
+    <form class="form-container" method="POST" action="/pet/createPet" enctype="multipart/form-data">
+      <div class="error" style="background-color: red;"></div><br>
+      <label>Name: <input type="text" name="petName" value="name" id="petName" required></label>
+      <label>Breed: <input id="breed" type="text" name="breed" value="breed" required></label>
+      <label>Birthday: <input type="date" name="birthday" value="birthday" id="birthday" required></label>
+      <label for="imgUpload">Photo: <input type="file" id="image" name="file" alt="Insert photo" required></label>
+      <label>Weight: <input type="number" name="weight" id="weight" value="weight"
+          placeholder="Enter weight in kilograms" step="0.01" required></label>
+      <input type="submit" value="Submit">
+      <button type="submit" value="Submit" class="btn">Add Pet</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </section>
+  <ul class="pet-list">
+    <%# for each opening %>
+      <% petInfo.forEach(pet=> { %>
+        <li class="pet-list__item">
+          <section class="pet-list__item--image">
+            <img class="img" src="<%=pet.image %>" alt="Photo of <%= pet.name  %> ">
+          </section>
+          <section class="pet-list__item--name">
+            <%=pet.name %>
+          </section>
+          <section class="pet-list__item--breed">
+            <%=pet.breed %>
+          </section>
+          <section class="pet-list__item--birthday">
+            <%=pet.birthday %>
+          </section>
+
+          <section class="pet-list__item--weight">
+            <%=pet.weight %>
+          </section>
+        </li>
+        <% })%>
+          <%# for each closing %>
+  </ul>
+
+  <script src="/pet.js"></script>
+</body>
+
+</html>
