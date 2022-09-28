@@ -23,25 +23,45 @@ module.exports = {
       console.log(err);
     }
   },
-  //   const file = req.image;
-  //   console.log(file);
-  //   const petInfo = new Pet({
-  //     name: req.body.petName,
-  //     owner_pet_id: req.body.owner,
-  //     breed: req.body.breed,
-  //     birthday: req.body.birthday,
-  //     image: req.body.image,
-  //     weight: req.body.weight,
-  //     owner_pet_id: req.owner.id,
-  //   });
+  updatePet: (req, res) => {
+    console.log(req.body);
+    try {
+      const id = req.params.id;
+      console.log(id);
+      Pet.findByIdAndUpdate(
+        id,
+        {
+          name: req.body.name,
+          breed: req.body.breed,
+          birthday: req.body.birthday,
+          image: req.body.image,
+          weight: req.body.weight,
+        },
 
-  //   try {
-  //     await petInfo.save();
-  //     console.log(petInfo);
-  //     res.redirect("/auth/dashboard");
-  //   } catch (err) {
-  //     if (err) return res.status(500).send(err);
-  //     res.redirect("/auth/dashboard");
-  //   }
-  // },
+        (err, results) => {
+          console.log(results);
+          if (err) return res.status(500).send(err);
+          console.log("Pet updated");
+          res.redirect("/auth/dashboard");
+        }
+      );
+    } catch (err) {
+      console.log(err);
+    }
+  },
+
+  deletePet: async (req, res) => {
+    console.log(req.params);
+
+    try {
+      let pet = await Pet.deleteOne({ _id: req.params.id });
+      console.log(pet);
+      await cloudinary.uploader.destroy(pet.cloudinaryId);
+      await Pet.remove({ _id: req.params.id });
+      console.log("Pet deleted!");
+      res.redirect("/auth/dashboard");
+    } catch (err) {
+      res.redirect("/auth/dashboard");
+    }
+  },
 };

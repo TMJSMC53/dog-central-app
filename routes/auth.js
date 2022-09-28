@@ -5,7 +5,6 @@ const { register, login } = require("../controllers/auth");
 const { ownerAuth } = require("../middleware/auth.js");
 const Pet = require("../models/Pet");
 const Vaccine = require("../models/Vaccine");
-const editPet = require("../controllers/edit_pet");
 
 router.post("/register", register);
 router.post("/login", login);

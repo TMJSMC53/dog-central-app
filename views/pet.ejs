@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/bc79913c77.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/css/dashboard.css">
   <title>Dog Central</title>
 </head>
@@ -27,11 +29,19 @@
       <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
     </form>
   </section>
+
   <div class="wrapper">
     <ul class="pet-list">
       <%# for each opening %>
+
         <% petInfo.forEach(pet=> { %>
+
           <li class="pet-list__item">
+
+            <form action="/pet/deletePet/<%= pet._id %>?_method=DELETE" method="POST" class="col-3">
+              <button class="btn btn-primary fa fa-trash" type="submit">DELETE PET</button>
+            </form>
+
             <section class="pet-list__item--image">
               <img class="img" src="<%=pet.image %>" alt="Photo of <%= pet.name  %> ">
             </section>
@@ -49,9 +59,20 @@
               <%=pet.weight %>
             </section>
           </li>
+
+          <form action="/pet/updatePet/<%= pet._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <input type="text" value="<%= pet.name %>" name="name">
+            <input type="text" value="<%= pet.breed %>" name="breed">
+            <input type="text" value="<%= pet.birthday %>" name="birthday">
+
+            <input type="text" value="<%= pet.weight %>" name="weight">
+            <button type="submit" class="btn btn-primary fa-solid fa-pen-to-square">Update</button>
+          </form>
           <% })%>
             <%# for each closing %>
+
     </ul>
+
 
     <ul class="vaccine-list">
       <%# for each opening %>

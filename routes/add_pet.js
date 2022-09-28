@@ -16,4 +16,7 @@ router.post(
   addPetController.createPet
 );
 
+router.delete("/deletePet/:id", addPetController.deletePet);
+router.put("/updatePet/:id", upload.single("file"), addPetController.updatePet);
+
 module.exports = router;
