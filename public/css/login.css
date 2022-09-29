@@ -222,3 +222,12 @@ form label {
 .register-link {
   letter-spacing: 1.7px;
 }
+
+@media (max-width: 35em) {
+  .modal {
+    position: absolute;
+    top: 10%;
+    right: 120%;
+    max-width: 300px;
+  }
+}

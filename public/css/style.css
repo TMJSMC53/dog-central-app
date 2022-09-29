@@ -95,7 +95,6 @@ body {
   line-height: 1.5;
   font-family: var(--ff-primary);
   font-size: 1.4rem;
-
   overflow-x: hidden;
 }
 
@@ -149,10 +148,10 @@ a {
 /* screen reader */
 
 /* text color */
-.accent-400 {
+.text-accent-400 {
   color: var(--clr-accent-400);
 }
-.accent-100 {
+.text-accent-100 {
   color: var(--clr-accent-100);
 }
 .text-primary {
@@ -163,6 +162,17 @@ a {
 }
 .text-neutral-900 {
   color: var(--clr-neutral-900);
+}
+
+.bg-light {
+  background-color: var(--clr-accent-400);
+}
+.bg-dark {
+  background-color: var(--clr-primary-400);
+}
+
+.central {
+  color: var(--clr-accent-400);
 }
 
 /* font weights */
@@ -208,8 +218,8 @@ a {
   font-size: 3rem;
 }
 
-.primary-header,
-.login {
+.primary-header {
+  display: flex;
   align-items: center;
   justify-content: space-between;
 }
@@ -233,9 +243,8 @@ a {
 }
 
 /* btns */
-.login__btns {
+.login {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 0.8rem;
@@ -246,12 +255,25 @@ a {
   padding: 1.3rem 2.125rem 1.3rem 2.312rem;
   border-radius: 8px;
   letter-spacing: 4px;
-  background: var(--clr-primary-400);
+  background: var(--clr-accent-400);
+}
+.hero-container {
+  margin: 2rem;
 }
 
 /* login page */
 
 @media (max-width: 35em) {
+  .primary-header {
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .logo {
+    margin: 0 0 0 1rem;
+    font-size: 2rem;
+  }
   .primary-navigation {
     position: fixed;
     z-index: 1000;
@@ -273,33 +295,41 @@ a {
     color: var(--clr-accent-100);
   }
 
+  .login {
+    flex-direction: column;
+  }
+
   .mobile-nav-toggle {
     display: block;
     position: absolute;
-    background: url("./images/icon-menu.svg");
+    background: url("../images/icon-menu.svg");
     background-repeat: no-repeat;
     z-index: 9999;
-    width: 3.6rem;
+    width: 2.6rem;
     aspect-ratio: 1;
-    top: 2rem;
-    right: 2rem;
+    top: 1.2%;
+    right: 3%;
     border: 0;
   }
 
   .mobile-nav-toggle[aria-expanded="true"] {
-    background-image: url("./images/icon-close-menu.svg");
+    background-image: url("../images/icon-close-menu.svg");
+  }
+  .mobile-nav-toggle[aria-expanded="false"] {
+    background-image: url("../images/icon-menu.svg");
   }
 }
 
 /* hero section */
 .hero-container {
-  border: 2px solid var(--clr-accent-400);
   border-radius: 8px;
 
   display: flex;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
+  flex-direction: row-reverse;
+  width: 95%;
+  margin: 1rem;
 }
 h1 {
   /* text-align: right; */
