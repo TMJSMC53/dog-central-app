@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dog Central</title>
+</head>
+
+<body>
+  <header class="primary-header flex container">
+
+    <section>
+      <a href="/" class="logo fw-bold text-primary">Dog<span class="central">Central</span></a>
+    </section>
+
+    <button class="mobile-nav-toggle" aria-controls="primary-navigation"><span class="sr-only"
+        aria-expanded="false"></span></button>
+
+    <nav>
+      <ul id="primary-navigation" data-visible="false" class="primary-navigation flex">
+        <li class="active">
+          <a class="nav-link accent-400" href="#">Home</a>
+        </li>
+        <li><a class="nav-link accent-400" href="#">About Us</a>
+        </li>
+        <li><a class="nav-link accent-400" href="#">Contact</a>
+        </li>
+        <!-- MODAL -->
+        <div id="login-modal" class="login-modal">
+          <div class="modal">
+            <div class="top-form">
+              <div class="close-modal">
+                <span class="fas fa-times"></span>
+              </div>
+            </div>
+            <div class="login-form">
+              <h2 class="text-primary">LOGIN</h2>
+              <span class="text-primary">Please enter your username and password</span>
+              <form method="POST" action="">
+                <section class="form-control">
+                  <div class="error" style="background-color: red;"></div><br>
+                  <input type="text" id="username" placeholder="Username" required /><br>
+                  <input type="password" id="password" placeholder="Password" required /><br>
+                  <button type="submit" class="btn-outline accent-100">Login</button>
+                  <!-- <a href="/auth/login">Login</a> -->
+                  <a class="register-link accent-400" href="/auth/register">Don't have an account? Register</a>
+                </section>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="login flex">
+          <a class="btn nav-link accent-400" href="/auth/register"> Sign up</a> <br />
+          <a class="btn-outline nav-link accent-100" href="/auth/login">Login</a>
+        </div>
+      </ul>
+    </nav>
+
+  </header>
+</body>
+
+</html>

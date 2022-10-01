@@ -224,6 +224,9 @@ form label {
 }
 
 @media (max-width: 35em) {
+  /* #login-model {
+    position: relative;
+  } */
   .modal {
     position: absolute;
     top: 10%;
