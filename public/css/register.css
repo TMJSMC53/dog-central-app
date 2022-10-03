@@ -132,7 +132,7 @@ a {
   }
 }
 
-#login-modal {
+#signup-modal {
   position: fixed;
   inset: 0 0 0 0;
   background: rgba(0, 0, 0, 0.6);
@@ -142,11 +142,12 @@ a {
   align-items: center;
 }
 
-.modal {
+.signup-modal {
   background: #e6ecf0;
   padding: 1rem 0 2rem 0;
   border-radius: 10px;
   width: 450px;
+  height: 50vh;
   /* text-align: center; */
 }
 
@@ -178,7 +179,7 @@ form label {
   font-size: 2rem;
 }
 
-.login-form {
+.signup-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -193,25 +194,25 @@ form label {
   align-items: center;
 }
 
-.login-form h2 {
+.signup-form h2 {
   letter-spacing: 2px;
   font-size: var(--fs-700);
 }
 
-.login-form span {
+.signup-form span {
   opacity: 0.7;
 }
 
-.login-form form input {
+.signup-form form input {
   width: 75%;
-  margin-bottom: 2rem;
-  padding: 1.2rem;
+  margin-bottom: 1rem;
+  padding: 0.7rem 1.2rem;
   border: 1px solid #d0d5db;
   outline: none;
   border-radius: 3px;
 }
 
-.login-form button {
+.signup-form button {
   padding: 1.2rem 0;
   width: 75%;
   border: 0;
@@ -220,5 +221,31 @@ form label {
 }
 
 .register-link {
+  font-size: 1rem;
   letter-spacing: 1.7px;
+}
+
+.register-link:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.close {
+  visibility: hidden;
+}
+
+@media (max-width: 35em) {
+  body {
+    position: relative;
+  }
+  #signup-modal {
+    top: -13%;
+    right: 120%;
+    width: 100%;
+    position: absolute;
+  }
+
+  .modal {
+    max-width: 300px;
+  }
 }

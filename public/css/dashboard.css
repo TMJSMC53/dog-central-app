@@ -149,6 +149,12 @@ h2 {
   border-radius: 50%;
 }
 
+.pet-list {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid blue;
+}
+
 .pet-list__item {
   margin-top: 2rem;
   width: 50%;
@@ -157,6 +163,13 @@ h2 {
 
 .pet-list__item--breed {
   text-transform: capitalize;
+}
+.form-btns {
+  display: flex;
+}
+
+.updatePet input {
+  display: none;
 }
 
 /* Button used to open the contact form - fixed at the bottom of the page */
@@ -167,10 +180,12 @@ h2 {
   border: none;
   cursor: pointer;
   opacity: 0.8;
-  position: fixed;
-  bottom: 23px;
-  right: 28px;
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
   width: 280px;
+
+  outline: 2px solid red;
 }
 
 /* The popup form - hidden by default */
@@ -230,4 +245,21 @@ h2 {
 .form-container .btn:hover,
 .open-button:hover {
   opacity: 1;
+}
+
+.updatePet {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid red;
+
+  width: 25%;
+}
+
+@media (max-width: 35em) {
+  .logo {
+    margin-left: 0;
+  }
+  h2 {
+    font-size: 1.25rem;
+  }
 }

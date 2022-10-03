@@ -1,5 +1,8 @@
 const primaryNav = document.querySelector(".primary-navigation");
 const navToggle = document.querySelector(".mobile-nav-toggle");
+const modalClose = document.querySelector(".modal");
+const loginModal = document.querySelector("#login-modal");
+const closeModalBtn = document.querySelector(".close-modal");
 
 navToggle.addEventListener("click", () => {
   const visibility = primaryNav.getAttribute("data-visible");
@@ -12,3 +15,11 @@ navToggle.addEventListener("click", () => {
     navToggle.setAttribute("aria-expanded", false);
   }
 });
+
+// CLose the modal button on the login/signup pages
+function closeModal() {
+  modalClose.classList.add("close");
+  loginModal.style.background = "none";
+}
+
+closeModalBtn.addEventListener("click", closeModal);
