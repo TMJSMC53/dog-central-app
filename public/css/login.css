@@ -133,10 +133,13 @@ a {
 }
 
 #login-modal {
-  /* position: relative; */
-  /* inset: 0 0 0 0; */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: rgba(0, 0, 0, 0.6);
-  /* z-index: 100; */
+  z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -149,8 +152,9 @@ a {
   background: #e6ecf0;
   padding: 1rem 0 2rem 0;
   border-radius: 10px;
-  width: 450px;
-  height: 43vh;
+  width: 100%;
+  max-width: 450px;
+  max-height: 80vh;
   /* text-align: center; */
 }
 
@@ -232,17 +236,15 @@ form label {
 }
 
 @media (max-width: 35em) {
-  body {
-    position: relative;
-  }
   #login-modal {
     top: -13%;
     right: 120%;
     width: 100%;
-    position: absolute;
+    /* position: absolute; */
   }
 
   .modal {
     max-width: 300px;
+    /* max-height: 43vh; */
   }
 }

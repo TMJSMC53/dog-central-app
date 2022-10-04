@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-
   <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
 
   <link rel="stylesheet" href="/css/style.css">
@@ -17,7 +16,7 @@
 <body>
   <header class="container">
     <nav class="navbar">
-      <a href="#" class="logo text-primary fw-bold"><span class="accent-400">Dog</span><span
+      <a href="/" class="logo text-primary fw-bold"><span class="accent-400">Dog</span><span
           class="central">Central</span></a>
 
       <!-- TODO - show username here -->
@@ -33,8 +32,90 @@
     <!-- Pet Form -->
     <%- include('pet.ejs') %>
       <!-- template begins -->
-  </main>
 
+      <!-- Notes Section -->
+      <section class="notes">
+        <h2 class="text-primary">Information Central</h2>
+        <table>
+          <tr>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Notes</th>
+            <th>Due</th>
+          </tr>
+          <tr>
+            <td>Vaccine</td>
+            <td>10/03/2022</td>
+            <td>Rabies</td>
+            <td>10/03/2022</td>
+          </tr>
+        </table>
+        <!-- <table>
+          <tr>
+            <th>Event</th>
+            <th>Date</th>
+            <th>Notes</th>
+            <th>Due</th>
+          </tr>
+          <tr>
+            <td><input type="text"></td>
+            <td><input type="date"></td>
+            <td><textarea name="" id="" cols="" rows=""></textarea></td>
+            <td><input type="date"></td>
+          </tr>
+          <tr>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+          </tr>
+          <tr>
+            <td>Ernst Handel</td>
+            <td>Roland Mendel</td>
+            <td>Austria</td>
+          </tr>
+          <tr>
+            <td>Island Trading</td>
+            <td>Helen Bennett</td>
+            <td>UK</td>
+          </tr>
+          <tr>
+            <td>Laughing Bacchus Winecellars</td>
+            <td>Yoshi Tannamuri</td>
+            <td>Canada</td>
+          </tr>
+          <tr>
+            <td>Magazzini Alimentari Riuniti</td>
+            <td>Giovanni Rovelli</td>
+            <td>Italy</td>
+          </tr>
+        </table> -->
+      </section>
+  </main>
+  <footer class="footer p-10 bg-dark text-accent-100">
+    <section>
+      <a href="/" class="footer-logo fw-bold .text-accent-100">Dog<span class="central">Central</span></a>
+    </section>
+    <div class="footer-box">
+      <span class="footer-title">Services</span>
+      <a class="link link-hover">Branding</a>
+      <a class="link link-hover">Design</a>
+      <a class="link link-hover">Marketing</a>
+      <a class="link link-hover">Advertisement</a>
+    </div>
+    <div class="footer-box">
+      <span class="footer-title">Company</span>
+      <a class="link link-hover">About us</a>
+      <a class="link link-hover">Contact</a>
+      <a class="link link-hover">Jobs</a>
+      <a class="link link-hover">Press kit</a>
+    </div>
+    <div class="footer-box">
+      <span class="footer-title">Legal</span>
+      <a class="link link-hover">Terms of use</a>
+      <a class="link link-hover">Privacy policy</a>
+      <a class="link link-hover">Cookie policy</a>
+    </div>
+  </footer>
 </body>
 
 </html>

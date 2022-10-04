@@ -14,19 +14,18 @@
 </head>
 
 <body>
-  <h2>Register your pet below:</h2>
-  <button class="open-button" onclick="openForm()">Register Pet</button>
+  <button class="open-button bg-dark text-accent-100" onclick="openForm()">Register Pet</button>
   <section class="form-popup" id="myForm">
     <form class="form-container" method="POST" action="/pet/createPet" enctype="multipart/form-data">
       <div class="error" style="background-color: red;"></div><br>
-      <label>Name: <input type="text" name="petName" value="" id="petName" required></label>
-      <label>Breed: <input id="breed" type="text" name="breed" value="" required></label>
-      <label>Birthday: <input type="datetime-local" name="birthday" value="birthday" id="birthday" required></label>
-      <label for="imgUpload">Photo: <input type="file" id="image" name="file" alt="Insert photo" required></label>
-      <label>Weight: <input type="number" name="weight" id="weight" value="weight"
+      <label for="name"><input type="text" name="petName" value="" id="petName" placeholder="Name" required></label>
+      <label for="breed"><input id="breed" type="text" name="breed" value="" placeholder="Breed" required></label>
+      <label class="birthday" for="birthday">Birthday: <input type="date" name="birthday" value="" id="birthday"
+          min="2005-01-01" max="2050-12-31" required></label>
+      <label for="imgUpload"><input type="file" id="image" name="file" alt="Insert photo" required></label>
+      <label for="weight"><input type="number" name="weight" id="weight" value="weight"
           placeholder="Enter weight in kilograms" step="0.01" required></label>
-      <input type="submit" value="Submit">
-      <button type="submit" value="Submit" class="btn">Add Pet</button>
+      <button type="submit" value="Submit" class="btn bg-dark">Add Pet</button>
       <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
     </form>
   </section>
@@ -38,8 +37,6 @@
         <% petInfo.forEach(pet=> { %>
 
           <li class="pet-list__item">
-
-
             <section class="pet-list__item--image">
               <img class="img" src="<%=pet.image %>" alt="Photo of <%= pet.name  %> ">
             </section>
@@ -53,7 +50,7 @@
             </section>
             <section class="pet-list__item--birthday">
               Birthday:
-              <%= pet.birthday %>
+              <%= new Date(pet.birthday).toLocaleDateString('en-US', {timeZone: 'UTC' }) %>
             </section>
 
             <section class="pet-list__item--weight">
@@ -62,21 +59,30 @@
             </section>
           </li>
 
-          <section class="form-btns">
-            <form action="/pet/deletePet/<%= pet._id %>?_method=DELETE" method="POST" class="col-3">
-              <button class="btn btn-primary fa fa-trash" type="submit">DELETE PET</button>
-            </form>
 
-            <form class="updatePet" action="/pet/updatePet/<%= pet._id %>?_method=PUT" method="POST"
+          <section class="edit-popup" id="updateForm">
+
+            <form class="form-container col-3" action=" /pet/updatePet/<%=pet._id %>?_method=PUT" method="POST"
               enctype="multipart/form-data">
               <input type="text" value="<%= pet.name %>" name="name">
               <input type="text" value="<%= pet.breed %>" name="breed">
               <input type="date" value="<%= pet.birthday %>" name="birthday">
 
               <input type="text" value="<%= pet.weight %>" name="weight">
-              <button type="submit" class="btn btn-primary fa-solid fa-pen-to-square">Update</button>
+              <button type="submit" value="Submit" class="btn bg-dark">Update</button>
+              <button type="button" class="btn cancel" onclick="closeUpdateForm()">Close</button>
+          </section>
+          </form>
+          <section class="form-btns">
+            <button type="submit" class="btn bg-light fas fa-edit" onclick="updateForm()"></button>
+
+            <form action="/pet/deletePet/<%= pet._id %>?_method=DELETE" method="POST" class="col-3">
+              <button class="btn bg-dark fa fa-trash" type="submit"></button>
             </form>
           </section>
+
+
+
           <% })%>
             <%# for each closing %>
 

@@ -19,7 +19,7 @@ navToggle.addEventListener("click", () => {
 // CLose the modal button on the login/signup pages
 function closeModal() {
   modalClose.classList.add("close");
-  loginModal.style.background = "none";
+  loginModal.style.display = "none";
 }
 
 closeModalBtn.addEventListener("click", closeModal);

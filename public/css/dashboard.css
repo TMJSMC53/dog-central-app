@@ -151,14 +151,19 @@ h2 {
 
 .pet-list {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  /* flex-direction: column; */
+  margin-top: 12rem;
   border: 3px solid blue;
+  width: 75%;
+  max-width: 300px;
 }
 
 .pet-list__item {
-  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
   width: 50%;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 
 .pet-list__item--breed {
@@ -166,36 +171,41 @@ h2 {
 }
 .form-btns {
   display: flex;
-}
-
-.updatePet input {
-  display: none;
+  gap: 0.5rem;
 }
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
-  background-color: #555;
-  color: white;
-  padding: 16px 20px;
+  padding: 1rem 2rem;
   border: none;
   cursor: pointer;
   opacity: 0.8;
   position: absolute;
-  bottom: 2%;
-  right: 2%;
-  width: 280px;
-
-  outline: 2px solid red;
+  top: 14%;
+  left: 2%;
+  width: 120px;
+  border-radius: 4px;
 }
 
 /* The popup form - hidden by default */
 .form-popup {
   display: none;
-  position: fixed;
-  bottom: 0;
-  right: 15px;
+  position: absolute;
+  bottom: 31%;
+  left: 15px;
   border: 3px solid #f1f1f1;
   z-index: 9;
+  border-radius: 4px;
+}
+
+.edit-popup {
+  display: none;
+  position: absolute;
+  bottom: 40%;
+  left: 2%;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  border-radius: 4px;
 }
 
 /* Add styles to the form container */
@@ -211,8 +221,8 @@ h2 {
 .form-container input[type="file"],
 .form-container input[type="number"] {
   width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
+  padding: 1rem 1.5rem;
+  margin: 5px 0 1.2rem 0;
   border: none;
   background: #f1f1f1;
 }
@@ -226,8 +236,6 @@ h2 {
 
 /* Set a style for the submit/login button */
 .form-container .btn {
-  background-color: #04aa6d;
-  color: white;
   padding: 16px 20px;
   border: none;
   cursor: pointer;
@@ -238,7 +246,7 @@ h2 {
 
 /* Add a red background color to the cancel button */
 .form-container .cancel {
-  background-color: red;
+  background-color: var(--clr-accent-400);
 }
 
 /* Add some hover effects to buttons */
@@ -247,19 +255,110 @@ h2 {
   opacity: 1;
 }
 
-.updatePet {
-  display: flex;
-  flex-direction: column;
-  border: 2px solid red;
+.birthday {
+  opacity: 0.5;
+  padding-left: 1.5rem;
+}
 
-  width: 25%;
+/* Icons */
+.fa,
+.fas {
+  border: 0;
+}
+
+.fa:hover {
+  background-color: var(--clr-accent-400);
+}
+
+.fas:hover {
+  background-color: var(--clr-primary-400);
+}
+
+/* Notes Section */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 
 @media (max-width: 35em) {
+  .wrapper {
+    width: 76%;
+  }
+  /* Register pet popup */
+  .open-button {
+    position: absolute;
+    top: 10%;
+  }
+
+  .form-popup {
+    position: absolute;
+    left: 2%;
+    bottom: 35%;
+  }
+
+  .pet-list {
+    margin-top: 10rem;
+    margin-bottom: 5rem;
+  }
+
   .logo {
     margin-left: 0;
   }
   h2 {
     font-size: 1.25rem;
+  }
+
+  /* Notes Section */
+  .notes h2 {
+    font-size: var(--fs-750);
+    font-weight: var(--fw-bold);
+  }
+
+  /* Footer */
+  .footer {
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    padding: 2.5rem;
+    font-size: 0.875rem;
+  }
+
+  .footer > section {
+    margin-bottom: 2.5rem;
+  }
+
+  .footer-logo {
+    margin: 0;
+    font-size: 2rem;
+  }
+
+  .footer-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 1.8rem;
+  }
+
+  .footer-box a {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-title {
+    margin-bottom: 1rem;
+    opacity: 0.5;
+    font-size: 0.875rem;
+    text-transform: uppercase;
   }
 }
