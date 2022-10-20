@@ -16,8 +16,7 @@
   --fw-semi-bold: 500;
   --fw-bold: 700;
 
-  --fs-300: 0.8125rem;
-  --fs-400: 0.875rem;
+  --fs-400: 1.2rem;
   --fs-500: 1rem;
   --fs-600: 1.875rem;
   --fs-700: 2.5rem;
@@ -25,37 +24,36 @@
   --fs-800: 8rem;
 }
 
-@media (min-width: 35em) {
+@media (min-width: 35rem) {
   :root {
     --fs-800: 5rem;
     --fs-750: 2.8rem;
     --fs-600: 1.5rem;
     --fs-500: 1.25rem;
-    --fs-400: 1rem;
+    --fs-400: 1.4rem;
   }
 }
 
 @media (min-width: 44rem) {
   :root {
-    --fs-800: 5rem;
-    --fs-750: 6.25rem;
+    --fs-800: 6.25rem;
+    --fs-750: 5rem;
     --fs-600: 1.5rem;
     --fs-500: 1.25rem;
-    --fs-400: 1rem;
+    --fs-400: 1.6rem;
   }
 }
 
 @media (min-width: 75rem) {
   :root {
     /* font-sizes */
-    --fs-750: 9.6rem;
+    --fs-750: 7rem;
     --fs-700: 3.5rem;
     --fs-600: 2rem;
     --fs-500: 1.75rem;
-    --fs-400: 1.125rem;
+    --fs-400: 2rem;
   }
 }
-
 /* https://piccalil.li/blog/a-modern-css-reset/ */
 
 /* Box sizing rules */
@@ -138,6 +136,10 @@ a {
   align-items: center;
 }
 
+.logo {
+  margin-left: 0;
+}
+
 h2 {
   padding: 0;
   font-size: 2.5rem;
@@ -149,41 +151,61 @@ h2 {
   border-radius: 50%;
 }
 
+.wrapper {
+  display: flex;
+  width: 100%;
+}
 .pet-list {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
   /* flex-direction: column; */
-  margin-top: 12rem;
-  border: 3px solid blue;
-  width: 75%;
-  max-width: 300px;
+  margin-top: 8rem;
+  /* border: 3px solid blue; */
+  /* width: 100%; */
+  /* max-width: 300px; */
+}
+
+.pet-list > * {
+  flex: 50%;
+  margin-bottom: 1rem;
 }
 
 .pet-list__item {
   display: flex;
   flex-direction: column;
-  width: 50%;
-  /* border: 2px solid red; */
+  width: 100%;
+
+  /* position: relative; */
 }
 
 .pet-list__item--breed {
   text-transform: capitalize;
 }
+
+.pet-list__item--image {
+  position: relative;
+}
+
 .form-btns {
   display: flex;
   gap: 0.5rem;
+  position: absolute;
+  top: 0;
+
+  right: 56%;
 }
 
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
-  padding: 1rem 2rem;
+  padding: 1.6rem 2rem;
   border: none;
   cursor: pointer;
   opacity: 0.8;
   position: absolute;
-  top: 14%;
-  left: 2%;
-  width: 120px;
+  top: -9%;
+  left: 0%;
+  width: 157px;
   border-radius: 4px;
 }
 
@@ -191,8 +213,8 @@ h2 {
 .form-popup {
   display: none;
   position: absolute;
-  bottom: 31%;
-  left: 15px;
+  top: 5%;
+  left: 15%;
   border: 3px solid #f1f1f1;
   z-index: 9;
   border-radius: 4px;
@@ -201,7 +223,7 @@ h2 {
 .edit-popup {
   display: none;
   position: absolute;
-  bottom: 40%;
+  top: 20%;
   left: 2%;
   border: 3px solid #f1f1f1;
   z-index: 9;
@@ -219,7 +241,11 @@ h2 {
 .form-container input[type="text"],
 .form-container input[type="date"],
 .form-container input[type="file"],
-.form-container input[type="number"] {
+.form-container input[type="number"],
+.form-container--note input[type="text"],
+.form-container--note input[type="date"],
+.form-container--note input[type="text"],
+.form-container--note input[type="date"] {
   width: 100%;
   padding: 1rem 1.5rem;
   margin: 5px 0 1.2rem 0;
@@ -229,13 +255,16 @@ h2 {
 
 /* When the inputs get focus, do something */
 .form-container input[type="text"]:focus,
-.form-container input[type="password"]:focus {
+.form-container--note input[type="text"]:focus,
+.form-container input[type="password"]:focus,
+.form-container input[type="date"]:focus {
   background-color: #ddd;
   outline: none;
 }
 
 /* Set a style for the submit/login button */
-.form-container .btn {
+.form-container .btn,
+.form-container--note .btn {
   padding: 16px 20px;
   border: none;
   cursor: pointer;
@@ -247,6 +276,10 @@ h2 {
 /* Add a red background color to the cancel button */
 .form-container .cancel {
   background-color: var(--clr-accent-400);
+}
+
+.form-container--note .cancel {
+  background-color: var(--clr-primary-400);
 }
 
 /* Add some hover effects to buttons */
@@ -262,8 +295,13 @@ h2 {
 
 /* Icons */
 .fa,
-.fas {
+.fas,
+.fa-plus {
   border: 0;
+}
+
+.mas {
+  display: inline-block;
 }
 
 .fa:hover {
@@ -275,6 +313,55 @@ h2 {
 }
 
 /* Notes Section */
+main {
+  position: relative;
+}
+
+.form-container--note {
+  max-width: 250px;
+  padding: 10px;
+  background-color: white;
+}
+.notes-box {
+  position: relative;
+}
+.note-button {
+  padding: 1rem 2rem;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: absolute;
+  bottom: 12%;
+  /* top: 18%; */
+  right: 0%;
+  width: 120px;
+  border-radius: 4px;
+}
+.note-popup {
+  display: none;
+  position: absolute;
+  top: 18%;
+  right: 1%;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  border-radius: 4px;
+}
+
+/* .notes h2 {
+  font-size: var(--fs-750);
+  font-weight: var(--fw-bold);
+} */
+
+.textareaElement {
+  width: 230px;
+  min-height: 17px;
+  border: 1px solid #ccc;
+  max-height: 150px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: none;
+}
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -288,77 +375,105 @@ th {
   padding: 8px;
 }
 
+th {
+  text-transform: uppercase;
+  font-weight: var(--fw-regular);
+  background: var(--clr-primary-400);
+  color: var(--clr-accent-100);
+}
+
 tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-@media (max-width: 35em) {
-  .wrapper {
-    width: 76%;
-  }
-  /* Register pet popup */
-  .open-button {
-    position: absolute;
-    top: 10%;
+@media only screen and (max-width: 30rem) {
+  .logo {
+    margin-left: 0;
+    font-size: 1.6rem;
   }
 
+  .form-btns {
+    right: 59%;
+  }
+
+  /* Register pet popup */
+  .open-button {
+    position: relative;
+    top: -12%;
+    padding: 1rem 2rem;
+  }
   .form-popup {
     position: absolute;
     left: 2%;
     bottom: 35%;
+    max-height: 450px;
   }
 
   .pet-list {
-    margin-top: 10rem;
-    margin-bottom: 5rem;
+    gap: 1rem;
+    display: flex;
+
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    /* width: 100%; */
+    /* border: 2px solid red; */
   }
 
-  .logo {
-    margin-left: 0;
+  .pet-list__item {
+    width: 50%;
+    margin-bottom: 0;
+    border: 2px solid orange;
+    padding-left: 1.2rem;
   }
+
+  .pet-list__item--image {
+    margin-bottom: 1.8rem;
+  }
+
   h2 {
     font-size: 1.25rem;
   }
 
-  /* Notes Section */
+  /* Notes Section  */
+
+  .notes-box {
+    position: relative;
+  }
+  .note-button {
+    position: absolute;
+    bottom: 8%;
+    /* top: 84%; */
+    /* right: 0%; */
+    right: -1%;
+    width: 60px;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+  }
+  .note-popup {
+    display: none;
+    position: absolute;
+    bottom: 31%;
+    left: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    border-radius: 4px;
+    max-width: 250px;
+    max-height: 350px;
+  }
+
   .notes h2 {
-    font-size: var(--fs-750);
+    font-size: var(--fs-600);
     font-weight: var(--fw-bold);
   }
 
-  /* Footer */
-  .footer {
-    min-height: 30vh;
-    display: flex;
-    flex-direction: column;
-    padding: 2.5rem;
-    font-size: 0.875rem;
-  }
+  table {
+    width: 100%;
+    border: 2px solid blue;
 
-  .footer > section {
-    margin-bottom: 2.5rem;
+    font-size: 1.2rem;
   }
+}
 
-  .footer-logo {
-    margin: 0;
-    font-size: 2rem;
-  }
-
-  .footer-box {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-bottom: 1.8rem;
-  }
-
-  .footer-box a {
-    margin-bottom: 0.5rem;
-  }
-
-  .footer-title {
-    margin-bottom: 1rem;
-    opacity: 0.5;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-  }
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
 }

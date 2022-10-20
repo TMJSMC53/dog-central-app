@@ -30,66 +30,65 @@
     </form>
   </section>
 
-  <div class="wrapper">
-    <ul class="pet-list">
-      <%# for each opening %>
 
-        <% petInfo.forEach(pet=> { %>
+  <ul class="pet-list">
+    <%# for each opening %>
 
-          <li class="pet-list__item">
-            <section class="pet-list__item--image">
-              <img class="img" src="<%=pet.image %>" alt="Photo of <%= pet.name  %> ">
+      <% petInfo.forEach((pet, i)=> { %>
+
+        <li class="pet-list__item">
+          <section class="pet-list__item--image item">
+            <img class="img" src="<%=pet.image %>" alt="Photo of <%= pet.name  %> ">
+            <section class="form-btns">
+              <button type="submit" class="btn bg-light fas fa-edit" onclick="updateForm(<%=i %>)"></button>
+
+              <form action="/pet/deletePet/<%= pet._id %>?_method=DELETE" method="POST" class="col-3">
+                <button class="btn bg-dark fa fa-trash" type="submit"></button>
+              </form>
             </section>
-            <section class="pet-list__item--name">
-              Name:
-              <%=pet.name %>
-            </section>
-            <section class="pet-list__item--breed">
-              Breed:
-              <%=pet.breed %>
-            </section>
-            <section class="pet-list__item--birthday">
-              Birthday:
-              <%= new Date(pet.birthday).toLocaleDateString('en-US', {timeZone: 'UTC' }) %>
-            </section>
-
-            <section class="pet-list__item--weight">
-              Weight:
-              <%=pet.weight %>
-            </section>
-          </li>
-
-
-          <section class="edit-popup" id="updateForm">
-
-            <form class="form-container col-3" action=" /pet/updatePet/<%=pet._id %>?_method=PUT" method="POST"
-              enctype="multipart/form-data">
-              <input type="text" value="<%= pet.name %>" name="name">
-              <input type="text" value="<%= pet.breed %>" name="breed">
-              <input type="date" value="<%= pet.birthday %>" name="birthday">
-
-              <input type="text" value="<%= pet.weight %>" name="weight">
-              <button type="submit" value="Submit" class="btn bg-dark">Update</button>
-              <button type="button" class="btn cancel" onclick="closeUpdateForm()">Close</button>
           </section>
+          <section class="pet-list__item--name">
+            Name:
+            <%=pet.name %>
+          </section>
+          <section class="pet-list__item--breed">
+            Breed:
+            <%=pet.breed %>
+          </section>
+          <section class="pet-list__item--birthday">
+            Birthday:
+            <%= new Date(pet.birthday).toLocaleDateString('en-US', {timeZone: 'UTC' }) %>
+          </section>
+
+          <section class="pet-list__item--weight">
+            Weight:
+            <%=pet.weight %>
+          </section>
+        </li>
+
+
+        <section class="updateForm edit-popup">
+
+          <form class="form-container col-3" action=" /pet/updatePet/<%=pet._id %>?_method=PUT" method="POST"
+            enctype="multipart/form-data">
+            <input type="text" value="<%= pet.name %>" name="name">
+            <input type="text" value="<%= pet.breed %>" name="breed">
+            <input type="date" value="<%= pet.birthday %>" name="birthday">
+
+            <input type="text" value="<%= pet.weight %>" name="weight">
+            <button type="submit" value="Submit" class="btn bg-dark">Update</button>
+            <button type="button" class="btn cancel" onclick="closeUpdateForm(<%=i %>)">Close</button>
           </form>
-          <section class="form-btns">
-            <button type="submit" class="btn bg-light fas fa-edit" onclick="updateForm()"></button>
-
-            <form action="/pet/deletePet/<%= pet._id %>?_method=DELETE" method="POST" class="col-3">
-              <button class="btn bg-dark fa fa-trash" type="submit"></button>
-            </form>
-          </section>
+        </section>
 
 
+        <% })%>
+          <%# for each closing %>
 
-          <% })%>
-            <%# for each closing %>
-
-    </ul>
+  </ul>
 
 
-    <!-- <ul class="vaccine-list">
+  <!-- <ul class="vaccine-list">
       <%# for each opening %>
         <% petInfo.forEach(pet=> { %>
           <li class="pet-list__item">
@@ -113,7 +112,6 @@
           <% })%>
             <%# for each closing %>
     </ul> -->
-  </div>
 
   <script src="/pet.js"></script>
 </body>

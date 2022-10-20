@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <!-- Font awesome -->
+  <script src="https://kit.fontawesome.com/bc79913c77.js" crossorigin="anonymous"></script>
+  <!-- Daisy UI -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
 
   <link rel="stylesheet" href="/css/style.css">
@@ -20,7 +22,7 @@
           class="central">Central</span></a>
 
       <!-- TODO - show username here -->
-      <h2>Welcome Back, <%= ownerName.firstName %>
+      <h2 class="fs-400">Welcome Back, <%= ownerName.firstName %>
       </h2>
       <button class="btn bg-dark"> <a href="/auth/logout">Log Out</a></button>
     </nav>
@@ -35,87 +37,100 @@
 
       <!-- Notes Section -->
       <section class="notes">
-        <h2 class="text-primary">Information Central</h2>
+        <div class="notes-box">
+          <h2 class="text-primary fs-750 fw-bold">Information Central</h2>
+          <button class="note-button bg-light text-accent-100" onclick="openNoteForm()"><span class="mas">+</span>
+            Note</button>
+        </div>
+        <section class="note-popup" id="addNote">
+          <form action="/note/addNote" class="form-container--note" method="POST">
+            <div class="error" style="background-color: red;"></div><br>
+            <label for="event"><input type="text" value="" name="event" id="event" placeholder="Event" required></label>
+            <label class="date" for="date"><input type="date" name="date" value="" min="2005-01-01" max="2050-12-31"
+                required></label>
+            <textarea name="notes" class="textareaElement"
+              placeholder="Notes section for dog events and reminders"></textarea>
+            <label class="date" for="due"><input type="date" name="due" value="" id="due" min="2005-01-01"
+                max="2050-12-31" required></label>
+            <label for="petName"><input type="text" value="" name="petName" id="petName" placeholder="Pet Name"
+                required></label>
+            <button type="submit" value="Submit" class="btn bg-light">Add Note</button>
+            <button type="button" class="btn cancel" onclick="closeNoteForm()">Close</button>
+          </form>
+
+        </section>
+
         <table>
           <tr>
             <th>Event</th>
             <th>Date</th>
             <th>Notes</th>
             <th>Due</th>
+            <th>Pet</th>
           </tr>
-          <tr>
-            <td>Vaccine</td>
-            <td>10/03/2022</td>
-            <td>Rabies</td>
-            <td>10/03/2022</td>
-          </tr>
+          <% petNotes.forEach((note, i)=> { %>
+            <tr>
+              <td>
+                <%= note.event %>
+              </td>
+              <td>
+                <%= new Date( note.date).toLocaleDateString('en-US', {timeZone: 'UTC' }) %>
+              </td>
+              <td>
+                <%= note.notes %>
+              </td>
+              <td>
+                <%= new Date( note.due).toLocaleDateString('en-US', {timeZone: 'UTC' }) %>
+              </td>
+              <td>
+                <%= note.pet.name %>
+              </td>
+            </tr>
+            <% })%>
+              <%# for each closing %>
         </table>
         <!-- <table>
-          <tr>
-            <th>Event</th>
-            <th>Date</th>
-            <th>Notes</th>
-            <th>Due</th>
-          </tr>
-          <tr>
-            <td><input type="text"></td>
-            <td><input type="date"></td>
-            <td><textarea name="" id="" cols="" rows=""></textarea></td>
-            <td><input type="date"></td>
-          </tr>
-          <tr>
-            <td>Centro comercial Moctezuma</td>
-            <td>Francisco Chang</td>
-            <td>Mexico</td>
-          </tr>
-          <tr>
-            <td>Ernst Handel</td>
-            <td>Roland Mendel</td>
-            <td>Austria</td>
-          </tr>
-          <tr>
-            <td>Island Trading</td>
-            <td>Helen Bennett</td>
-            <td>UK</td>
-          </tr>
-          <tr>
-            <td>Laughing Bacchus Winecellars</td>
-            <td>Yoshi Tannamuri</td>
-            <td>Canada</td>
-          </tr>
-          <tr>
-            <td>Magazzini Alimentari Riuniti</td>
-            <td>Giovanni Rovelli</td>
-            <td>Italy</td>
-          </tr>
-        </table> -->
+                <tr>
+                  <th>Event</th>
+                  <th>Date</th>
+                  <th>Notes</th>
+                  <th>Due</th>
+                </tr>
+                <tr>
+                  <td><input type="text"></td>
+                  <td><input type="date"></td>
+                  <td><textarea name="" id="" cols="" rows=""></textarea></td>
+                  <td><input type="date"></td>
+                </tr>
+                <tr>
+                  <td>Centro comercial Moctezuma</td>
+                  <td>Francisco Chang</td>
+                  <td>Mexico</td>
+                </tr>
+                <tr>
+                  <td>Ernst Handel</td>
+                  <td>Roland Mendel</td>
+                  <td>Austria</td>
+                </tr>
+                <tr>
+                  <td>Island Trading</td>
+                  <td>Helen Bennett</td>
+                  <td>UK</td>
+                </tr>
+                <tr>
+                  <td>Laughing Bacchus Winecellars</td>
+                  <td>Yoshi Tannamuri</td>
+                  <td>Canada</td>
+                </tr>
+                <tr>
+                  <td>Magazzini Alimentari Riuniti</td>
+                  <td>Giovanni Rovelli</td>
+                  <td>Italy</td>
+                </tr>
+              </table> -->
       </section>
   </main>
-  <footer class="footer p-10 bg-dark text-accent-100">
-    <section>
-      <a href="/" class="footer-logo fw-bold .text-accent-100">Dog<span class="central">Central</span></a>
-    </section>
-    <div class="footer-box">
-      <span class="footer-title">Services</span>
-      <a class="link link-hover">Branding</a>
-      <a class="link link-hover">Design</a>
-      <a class="link link-hover">Marketing</a>
-      <a class="link link-hover">Advertisement</a>
-    </div>
-    <div class="footer-box">
-      <span class="footer-title">Company</span>
-      <a class="link link-hover">About us</a>
-      <a class="link link-hover">Contact</a>
-      <a class="link link-hover">Jobs</a>
-      <a class="link link-hover">Press kit</a>
-    </div>
-    <div class="footer-box">
-      <span class="footer-title">Legal</span>
-      <a class="link link-hover">Terms of use</a>
-      <a class="link link-hover">Privacy policy</a>
-      <a class="link link-hover">Cookie policy</a>
-    </div>
-  </footer>
+  <%- include('../views/partials/footer.ejs') %>
 </body>
 
 </html>

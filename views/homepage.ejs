@@ -7,7 +7,7 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
+  <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" /> -->
   <link rel="stylesheet" href="/css/style.css">
 
   <title>Home page</title>
@@ -109,10 +109,10 @@
           </div>
         </div>
     </main>
-    <footer class="footer p-10 bg-dark text-accent-100">
+    <%- include('../views/partials/footer.ejs') %>
+      <!-- <footer class="footer p-10 bg-dark text-accent-100">
       <div>
-        <img src="DogCentrl-footer.jpg" alt="Dog Central Logo" class="footer-img">
-        <p>ACME Industries Ltd.<br>Providing reliable tech since 1992</p>
+        <a href="/" class="footer-logo fw-bold .text-accent-100">Dog<span class="central">Central</span></a>
       </div>
       <div>
         <span class="footer-title">Services</span>
@@ -134,9 +134,9 @@
         <a class="link link-hover">Privacy policy</a>
         <a class="link link-hover">Cookie policy</a>
       </div>
-    </footer>
+    </footer> -->
 
-    <script src="main.js"></script>
+      <script src="main.js"></script>
 </body>
 
 </html>

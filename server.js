@@ -10,7 +10,7 @@ const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/auth");
 const addPetRoutes = require("./routes/add_pet");
-const vaccineRoutes = require("./routes/vaccine");
+const noteRoutes = require("./routes/note");
 
 app.set("view engine", "ejs");
 
@@ -37,7 +37,7 @@ app.use(methodOverride("_method"));
 // Routes
 app.use("/auth", authRoutes);
 app.use("/pet", addPetRoutes);
-app.use("/vaccine", vaccineRoutes);
+app.use("/note", noteRoutes);
 
 //Start Server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
