@@ -29,7 +29,7 @@
     --fs-800: 5rem;
     --fs-750: 2.8rem;
     --fs-600: 1.5rem;
-    --fs-500: 1.25rem;
+    --fs-500: 1rem;
     --fs-400: 1.4rem;
   }
 }
@@ -294,8 +294,8 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: space-between;
-  padding: 5rem 2.5rem 2.5rem 2.5rem;
-  min-height: 42%;
+  padding: 5rem 2.5rem;
+  /* min-height: 42%; */
 }
 
 .footer-logo {
@@ -387,7 +387,8 @@ h1 {
     min-height: 50vh;
     display: flex;
     flex-direction: column;
-    padding: 2.5rem;
+    margin-top: 2rem;
+    padding: 2.5rem 2.5rem 5rem 2.5rem;
     font-size: 0.875rem;
   }
 
@@ -397,6 +398,7 @@ h1 {
 
   .footer-logo {
     font-size: 2rem;
+    padding-top: 2rem;
   }
 
   .footer-box {
@@ -407,14 +409,18 @@ h1 {
   }
 
   .footer-box a {
-    font-size: var(--fs-500);
+    font-size: 1rem;
     margin-bottom: 0.5rem;
+  }
+
+  .footer-box:last-child {
+    margin-bottom: 0;
   }
 
   .footer-title {
     margin-bottom: 1rem;
     opacity: 0.5;
-    font-size: 1.875rem;
+    font-size: 1.5rem;
     text-transform: uppercase;
   }
 }

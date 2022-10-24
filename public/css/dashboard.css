@@ -233,7 +233,7 @@ h2 {
 /* Add styles to the form container */
 .form-container {
   max-width: 300px;
-  padding: 10px;
+  padding: 1rem 1rem 1.5rem 1rem;
   background-color: white;
 }
 
@@ -364,8 +364,9 @@ main {
 
 table {
   font-family: arial, sans-serif;
-  border-collapse: collapse;
+  /* border-collapse: collapse; */
   width: 100%;
+  overflow: hidden;
 }
 
 td,
@@ -376,17 +377,25 @@ th {
 }
 
 th {
+  position: sticky;
+  top: 0;
+
   text-transform: uppercase;
   font-weight: var(--fw-regular);
   background: var(--clr-primary-400);
   color: var(--clr-accent-100);
 }
 
+.table-wrapper {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
 tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-@media only screen and (max-width: 30rem) {
+@media only screen and (max-width: 35rem) {
   .logo {
     margin-left: 0;
     font-size: 1.6rem;
@@ -397,15 +406,17 @@ tr:nth-child(even) {
   }
 
   /* Register pet popup */
+
   .open-button {
     position: relative;
     top: -12%;
-    padding: 1rem 2rem;
+    padding: 1rem;
+    width: 12.3rem;
   }
   .form-popup {
     position: absolute;
-    left: 2%;
-    bottom: 35%;
+    top: 4%;
+    left: 0%;
     max-height: 450px;
   }
 
@@ -445,7 +456,7 @@ tr:nth-child(even) {
     bottom: 8%;
     /* top: 84%; */
     /* right: 0%; */
-    right: -1%;
+    right: 0%;
     width: 60px;
     padding: 0.5rem;
     font-size: 1.2rem;
@@ -453,13 +464,13 @@ tr:nth-child(even) {
   .note-popup {
     display: none;
     position: absolute;
-    bottom: 31%;
-    left: 15px;
+    top: 40%;
+    left: 28%;
     border: 3px solid #f1f1f1;
     z-index: 9;
     border-radius: 4px;
     max-width: 250px;
-    max-height: 350px;
+    max-height: 450px;
   }
 
   .notes h2 {
@@ -467,13 +478,41 @@ tr:nth-child(even) {
     font-weight: var(--fw-bold);
   }
 
-  table {
+  .table-wrapper {
     width: 100%;
-    border: 2px solid blue;
+  }
 
-    font-size: 1.2rem;
+  table {
+    font-size: 1rem;
   }
 }
 
 @media only screen and (min-width: 481px) and (max-width: 1024px) {
 }
+
+/* Remove
+.table-container {
+    height: 150px;
+    overflow: hidden;
+  }
+
+  .fixed_header {
+    width: 100%;
+    max-width: 500px;
+    height: 400px;
+    overflow-y: auto;
+    border: 2px solid blue;
+    font-size: 1.1rem;
+  }
+
+  thead {
+    position: sticky;
+  }
+
+  tbody {
+    height: 100px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+*/

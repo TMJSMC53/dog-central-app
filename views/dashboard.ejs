@@ -9,8 +9,8 @@
   <!-- Daisy UI -->
   <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
 
-  <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/dashboard.css">
+  <link rel="stylesheet" href="/css/style.css">
 
   <title>Dashboard</title>
 </head>
@@ -60,74 +60,45 @@
 
         </section>
 
-        <table>
-          <tr>
-            <th>Event</th>
-            <th>Date</th>
-            <th>Notes</th>
-            <th>Due</th>
-            <th>Pet</th>
-          </tr>
-          <% petNotes.forEach((note, i)=> { %>
-            <tr>
-              <td>
-                <%= note.event %>
-              </td>
-              <td>
-                <%= new Date( note.date).toLocaleDateString('en-US', {timeZone: 'UTC' }) %>
-              </td>
-              <td>
-                <%= note.notes %>
-              </td>
-              <td>
-                <%= new Date( note.due).toLocaleDateString('en-US', {timeZone: 'UTC' }) %>
-              </td>
-              <td>
-                <%= note.pet.name %>
-              </td>
-            </tr>
-            <% })%>
-              <%# for each closing %>
-        </table>
-        <!-- <table>
+
+        <div class="table-wrapper">
+          <table>
+            <thead>
+
+              <th>Event</th>
+              <th>Date</th>
+              <th>Notes</th>
+              <th>Due</th>
+              <th>Pet</th>
+
+            </thead>
+            <tbody>
+              <% petNotes.forEach((note, i)=> { %>
+
                 <tr>
-                  <th>Event</th>
-                  <th>Date</th>
-                  <th>Notes</th>
-                  <th>Due</th>
+                  <td>
+                    <%= note.event %>
+                  </td>
+                  <td>
+                    <%= new Date( note.date).toLocaleDateString('en-US', {timeZone: 'UTC' }) %>
+                  </td>
+                  <td>
+                    <%= note.notes %>
+                  </td>
+                  <td>
+                    <%= new Date( note.due).toLocaleDateString('en-US', {timeZone: 'UTC' }) %>
+                  </td>
+                  <td>
+                    <%= note.pet.name %>
+                  </td>
                 </tr>
-                <tr>
-                  <td><input type="text"></td>
-                  <td><input type="date"></td>
-                  <td><textarea name="" id="" cols="" rows=""></textarea></td>
-                  <td><input type="date"></td>
-                </tr>
-                <tr>
-                  <td>Centro comercial Moctezuma</td>
-                  <td>Francisco Chang</td>
-                  <td>Mexico</td>
-                </tr>
-                <tr>
-                  <td>Ernst Handel</td>
-                  <td>Roland Mendel</td>
-                  <td>Austria</td>
-                </tr>
-                <tr>
-                  <td>Island Trading</td>
-                  <td>Helen Bennett</td>
-                  <td>UK</td>
-                </tr>
-                <tr>
-                  <td>Laughing Bacchus Winecellars</td>
-                  <td>Yoshi Tannamuri</td>
-                  <td>Canada</td>
-                </tr>
-                <tr>
-                  <td>Magazzini Alimentari Riuniti</td>
-                  <td>Giovanni Rovelli</td>
-                  <td>Italy</td>
-                </tr>
-              </table> -->
+
+                <% })%>
+                  <%# for each closing %>
+            </tbody>
+          </table>
+        </div>
+
       </section>
   </main>
   <%- include('../views/partials/footer.ejs') %>
