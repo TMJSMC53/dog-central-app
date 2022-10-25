@@ -17,7 +17,7 @@ module.exports = {
         weight: req.body.weight,
         owner_pet_id: req.owner.id,
       });
-      console.log("Post has been added!");
+      console.log("Pet has been created!");
       res.redirect("/auth/dashboard");
     } catch (err) {
       console.log(err);

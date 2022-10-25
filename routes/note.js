@@ -10,5 +10,5 @@ const noteController = require("../controllers/note");
 // Vaccine routes
 // Register vaccine -> /vaccine/registerVaccine
 router.post("/addNote", ownerAuth, noteController.addNote);
-
+router.delete("/deleteNote/:id", noteController.deleteNote);
 module.exports = router;

@@ -91,6 +91,11 @@
                   <td>
                     <%= note.pet.name %>
                   </td>
+                  <td>
+                    <form action="/note/deleteNote/<%= pet._id %>?_method=DELETE" method="POST" class="col-3">
+                      <button class="btn bg-dark fa fa-trash" type="submit"></button>
+                    </form>
+                  </td>
                 </tr>
 
                 <% })%>

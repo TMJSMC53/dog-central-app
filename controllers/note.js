@@ -20,4 +20,15 @@ module.exports = {
       console.log(err);
     }
   },
+
+  deleteNote: async (req, res) => {
+    try {
+      let note = await Note.deleteOne({ _id: req.params.id });
+      console.log(note);
+      console.log("Note deleted!");
+      res.redirect("/auth/dashboard");
+    } catch (err) {
+      res.redirect("/auth/dashboard");
+    }
+  },
 };
