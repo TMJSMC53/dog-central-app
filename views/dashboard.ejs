@@ -24,7 +24,7 @@
       <!-- TODO - show username here -->
       <h2 class="fs-400">Welcome Back, <%= ownerName.firstName %>
       </h2>
-      <button class="btn bg-dark"> <a href="/auth/logout">Log Out</a></button>
+      <button class="btn btn-logout bg-dark"> <a href="/auth/logout">Log Out</a></button>
     </nav>
   </header>
 
@@ -70,7 +70,7 @@
               <th>Notes</th>
               <th>Due</th>
               <th>Pet</th>
-
+              <th></th>
             </thead>
             <tbody>
               <% petNotes.forEach((note, i)=> { %>
@@ -92,7 +92,7 @@
                     <%= note.pet.name %>
                   </td>
                   <td>
-                    <form action="/note/deleteNote/<%= pet._id %>?_method=DELETE" method="POST" class="col-3">
+                    <form action="/note/deleteNote/<%= note._id %>?_method=DELETE" method="POST" class="col-3">
                       <button class="btn bg-dark fa fa-trash" type="submit"></button>
                     </form>
                   </td>

@@ -47,22 +47,24 @@
               </form>
             </section>
           </section>
-          <section class="pet-list__item--name">
-            Name:
-            <%=pet.name %>
-          </section>
-          <section class="pet-list__item--breed">
-            Breed:
-            <%=pet.breed %>
-          </section>
-          <section class="pet-list__item--birthday">
-            Birthday:
-            <%= new Date(pet.birthday).toLocaleDateString('en-US', {timeZone: 'UTC' }) %>
-          </section>
+          <section class="pet-list__items">
+            <section class="pet-list__item--name">
+              <span class="pet-list__item--title"> Name:</span>
+              <%=pet.name %>
+            </section>
+            <section class="pet-list__item--breed">
+              <span class="pet-list__item--title">Breed:</span>
+              <%=pet.breed %>
+            </section>
+            <section class="pet-list__item--birthday">
+              <span class="pet-list__item--title">Birthday:</span>
+              <%= new Date(pet.birthday).toLocaleDateString('en-US', {timeZone: 'UTC' }) %>
+            </section>
 
-          <section class="pet-list__item--weight">
-            Weight:
-            <%=pet.weight %>
+            <section class="pet-list__item--weight">
+              <span class="pet-list__item--title">Weight:</span>
+              <%=pet.weight %>
+            </section>
           </section>
         </li>
 
