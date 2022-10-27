@@ -48,10 +48,10 @@
   :root {
     /* font-sizes */
     --fs-750: 7rem;
-    --fs-700: 3.5rem;
+    --fs-700: 3rem;
     --fs-600: 2rem;
     --fs-500: 1.75rem;
-    --fs-400: 2rem;
+    --fs-400: 4rem;
   }
 }
 
@@ -96,6 +96,7 @@ body {
   font-size: 1.4rem;
   overflow-x: hidden;
   min-height: 110vh;
+  max-width: 1440px;
 }
 
 /* A elements that don't have a class get default styles */
@@ -222,6 +223,9 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-right: 2rem;
+
+  width: 100%;
 }
 
 .primary-navigation {
@@ -230,6 +234,11 @@ a {
   margin: 0;
   display: flex;
   align-items: center;
+}
+
+.nav-link {
+  margin-right: 2rem;
+  font-size: 1.8rem;
 }
 
 .btn-outline .nav-link:hover {
@@ -245,22 +254,24 @@ a {
 /* btns */
 .login {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
+  align-items: flex-end;
   gap: 0.8rem;
   letter-spacing: 4px;
 }
 
 .btn-signup {
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 1rem 2rem;
   border-radius: 8px;
   letter-spacing: 4px;
+  font-size: 1rem;
 }
 .btn-login {
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 1rem 2rem;
   border-radius: 8px;
   letter-spacing: 4px;
   background: var(--clr-accent-400);
+  font-size: 1rem;
 }
 .hero-container {
   margin: 2rem;
@@ -295,6 +306,7 @@ h1 {
   justify-content: space-between;
   align-items: space-between;
   padding: 5rem 2.5rem;
+  margin-top: 5rem;
   /* min-height: 42%; */
 }
 
@@ -309,13 +321,13 @@ h1 {
 }
 
 .footer-box a {
-  font-size: var(--fs-700);
+  font-size: 2rem;
   margin-bottom: 6.5rem;
 }
 
 .footer-title {
   opacity: 0.5;
-  font-size: 2.75rem;
+  font-size: 2.4rem;
   text-transform: uppercase;
   font-weight: var(--fw-bold);
   margin-bottom: 5.5rem;
@@ -425,9 +437,13 @@ h1 {
   }
 }
 
-@media only screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 561px) and (max-width: 1200px) {
   .logo {
-    font-size: 4rem;
+    font-size: 2rem;
+  }
+
+  .nav-link {
+    font-size: 1.4rem;
   }
 
   .btn-logout {
@@ -439,10 +455,26 @@ h1 {
   }
 
   .footer {
+    display: flex;
+    flex-direction: column;
     min-height: 52vh;
   }
 
   .footer-title {
-    margin-top: 6rem;
+    margin: 4.5rem 0;
+  }
+
+  .footer-box {
+    /* border: 2px solid aliceblue; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 0.5px solid rgba(211, 211, 211, 0.5);
+  }
+  .footer-box a {
+    margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
   }
 }

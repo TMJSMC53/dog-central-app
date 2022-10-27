@@ -16,6 +16,7 @@
   --fw-semi-bold: 500;
   --fw-bold: 700;
 
+  --fs-300: 1rem;
   --fs-400: 1.2rem;
   --fs-500: 1rem;
   --fs-600: 1.875rem;
@@ -31,6 +32,7 @@
     --fs-600: 1.5rem;
     --fs-500: 1.25rem;
     --fs-400: 1.4rem;
+    --fs-300: 2rem;
   }
 }
 
@@ -51,7 +53,8 @@
     --fs-700: 3.5rem;
     --fs-600: 2rem;
     --fs-500: 1.75rem;
-    --fs-400: 2rem;
+    --fs-400: 3.6rem;
+    --fs-300: 2rem;
   }
 }
 /* https://piccalil.li/blog/a-modern-css-reset/ */
@@ -130,6 +133,9 @@ a {
   }
 }
 
+.container {
+  margin-bottom: 8rem;
+}
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -137,6 +143,7 @@ a {
 }
 
 .logo {
+  font-size: 5rem;
   margin-left: 0;
 }
 
@@ -145,25 +152,27 @@ h2 {
   font-size: 2.5rem;
 }
 
+.btn-logout {
+  padding: 2rem 3rem 3rem 3rem;
+  font-size: 1.8rem;
+}
+
 .img {
   width: 100px;
   height: 100px;
   border-radius: 50%;
 }
 
-.wrapper {
-  display: flex;
-  width: 100%;
-}
 .pet-list {
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   /* justify-content: space-between; */
   /* flex-direction: column; */
-  margin-top: 8rem;
-  /* border: 3px solid blue; */
+  margin: 8rem 0;
+  border: 3px solid blue;
   /* width: 100%; */
-  /* max-width: 300px; */
 }
 
 .pet-list > * {
@@ -173,10 +182,14 @@ h2 {
 
 .pet-list__item {
   display: flex;
-  flex-direction: column;
-  width: 100%;
 
-  /* position: relative; */
+  gap: 5rem;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 5rem;
+  max-width: 600px;
+  padding: 2rem;
+  border: 2px solid orange;
 }
 
 .pet-list__item--breed {
@@ -187,13 +200,23 @@ h2 {
   position: relative;
 }
 
+.pet-list__item--image img {
+  width: 275px;
+  height: 275px;
+}
+
+.pet-list__items {
+  width: 50%;
+  font-size: 1.8rem;
+}
+
 .form-btns {
   display: flex;
   gap: 0.5rem;
   position: absolute;
   top: 0;
 
-  right: 56%;
+  right: 1%;
 }
 
 /* Button used to open the contact form - fixed at the bottom of the page */
@@ -395,14 +418,14 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-@media only screen and (max-width: 35rem) {
+@media only screen and (max-width: 39rem) {
   .logo {
     margin-left: 0;
     font-size: 1.6rem;
   }
 
   .form-btns {
-    right: 15%;
+    right: -12%;
   }
 
   /* Register pet popup */
@@ -437,9 +460,15 @@ tr:nth-child(even) {
 
   .pet-list__item {
     width: 70%;
+    max-width: 250px;
+    padding-top: 1.2rem;
     margin-bottom: 1rem;
     padding-left: 1.2rem;
     font-size: 1.4rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    outline: 1px solid #f1f1f1;
   }
 
   .pet-list__item--image img {
@@ -493,7 +522,7 @@ tr:nth-child(even) {
   }
 }
 
-@media only screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 810px) and (max-width: 1024px) {
   .container {
     margin-bottom: 10rem;
   }
@@ -523,18 +552,20 @@ tr:nth-child(even) {
   }
 
   .pet-list__item--image img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
   }
   .pet-list__item {
-    width: 50%;
-    max-width: 475px;
+    width: 100%;
+    max-width: 375px;
     flex-direction: row;
-    margin-right: 2.4rem;
+    margin-right: 2rem;
     margin-bottom: 2rem;
     padding-left: 1.2rem;
     outline: 1px solid #f1f1f1;
     border-radius: 5px;
+
+    border: 3px solid red;
   }
 
   .pet-list__items {

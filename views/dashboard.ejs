@@ -22,7 +22,7 @@
           class="central">Central</span></a>
 
       <!-- TODO - show username here -->
-      <h2 class="fs-400">Welcome Back, <%= ownerName.firstName %>
+      <h2 class="fs-400 text-neutral-100">Welcome Back, <%= ownerName.firstName %>
       </h2>
       <button class="btn btn-logout bg-dark"> <a href="/auth/logout">Log Out</a></button>
     </nav>
@@ -63,7 +63,7 @@
 
         <div class="table-wrapper">
           <table>
-            <thead>
+            <thead class="fs-500">
 
               <th>Event</th>
               <th>Date</th>
@@ -72,7 +72,7 @@
               <th>Pet</th>
               <th></th>
             </thead>
-            <tbody>
+            <tbody class="fs-300">
               <% petNotes.forEach((note, i)=> { %>
 
                 <tr>
