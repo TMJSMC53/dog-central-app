@@ -96,7 +96,7 @@ body {
   line-height: 1.5;
   font-family: var(--ff-primary);
   font-size: 1.4rem;
-
+  min-height: 50vh;
   overflow-x: hidden;
 }
 
@@ -133,9 +133,6 @@ a {
   }
 }
 
-.container {
-  margin-bottom: 8rem;
-}
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -145,6 +142,7 @@ a {
 .logo {
   font-size: 5rem;
   margin-left: 0;
+  margin-bottom: 0;
 }
 
 h2 {
@@ -168,11 +166,7 @@ h2 {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  /* justify-content: space-between; */
-  /* flex-direction: column; */
   margin: 8rem 0;
-  border: 3px solid blue;
-  /* width: 100%; */
 }
 
 .pet-list > * {
@@ -182,14 +176,15 @@ h2 {
 
 .pet-list__item {
   display: flex;
-
   gap: 5rem;
   width: 100%;
+  margin-top: 5rem;
   margin-left: 0;
   margin-right: 5rem;
   max-width: 600px;
   padding: 2rem;
-  border: 2px solid orange;
+  outline: 1px solid #f1f1f1;
+  border-radius: 5px;
 }
 
 .pet-list__item--breed {
@@ -215,7 +210,6 @@ h2 {
   gap: 0.5rem;
   position: absolute;
   top: 0;
-
   right: 1%;
 }
 
@@ -236,8 +230,8 @@ h2 {
 .form-popup {
   display: none;
   position: absolute;
-  top: 5%;
-  left: 15%;
+  top: 18%;
+  left: 0%;
   border: 3px solid #f1f1f1;
   z-index: 9;
   border-radius: 4px;
@@ -356,7 +350,7 @@ main {
   position: absolute;
   bottom: 12%;
   /* top: 18%; */
-  right: 0%;
+  right: 1%;
   width: 120px;
   border-radius: 4px;
 }
@@ -369,11 +363,6 @@ main {
   z-index: 9;
   border-radius: 4px;
 }
-
-/* .notes h2 {
-  font-size: var(--fs-750);
-  font-weight: var(--fw-bold);
-} */
 
 .textareaElement {
   width: 230px;
@@ -418,111 +407,8 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-@media only screen and (max-width: 39rem) {
-  .logo {
-    margin-left: 0;
-    font-size: 1.6rem;
-  }
-
-  .form-btns {
-    right: -12%;
-  }
-
-  /* Register pet popup */
-
-  .open-button {
-    position: relative;
-    top: -12%;
-    padding: 1rem;
-    width: 12.3rem;
-  }
-  .form-popup {
-    position: absolute;
-    top: 4%;
-    left: 0%;
-    max-height: 450px;
-  }
-
-  .pet-list {
-    gap: 1rem;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: center;
-    justify-content: center;
-    margin: 3rem auto;
-    /* flex-wrap: wrap; */
-    /* margin-top: 2rem;
-    margin-bottom: 3rem; */
-    width: 100%;
-    /* border: 2px solid red; */
-  }
-
-  .pet-list__item {
-    width: 70%;
-    max-width: 250px;
-    padding-top: 1.2rem;
-    margin-bottom: 1rem;
-    padding-left: 1.2rem;
-    font-size: 1.4rem;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    outline: 1px solid #f1f1f1;
-  }
-
-  .pet-list__item--image img {
-    width: 17.5rem;
-    height: 17.5rem;
-    margin-bottom: 1.8rem;
-  }
-
-  h2 {
-    font-size: 1.25rem;
-  }
-
-  /* Notes Section  */
-
-  .notes-box {
-    position: relative;
-  }
-  .note-button {
-    position: absolute;
-    bottom: 8%;
-    /* top: 84%; */
-    /* right: 0%; */
-    right: 0%;
-    width: 60px;
-    padding: 0.5rem;
-    font-size: 1.2rem;
-  }
-  .note-popup {
-    display: none;
-    position: absolute;
-    top: 40%;
-    left: 28%;
-    border: 3px solid #f1f1f1;
-    z-index: 9;
-    border-radius: 4px;
-    max-width: 250px;
-    max-height: 450px;
-  }
-
-  .notes h2 {
-    font-size: var(--fs-600);
-    font-weight: var(--fw-bold);
-  }
-
-  .table-wrapper {
-    width: 100%;
-  }
-
-  table {
-    font-size: 1rem;
-  }
-}
-
-@media only screen and (min-width: 810px) and (max-width: 1024px) {
+/* Tablets Media Query */
+@media only screen and (min-width: 1024px) and (max-width: 1324px) {
   .container {
     margin-bottom: 10rem;
   }
@@ -562,10 +448,8 @@ tr:nth-child(even) {
     margin-right: 2rem;
     margin-bottom: 2rem;
     padding-left: 1.2rem;
-    outline: 1px solid #f1f1f1;
-    border-radius: 5px;
-
-    border: 3px solid red;
+    /* outline: 1px solid #f1f1f1;
+    border-radius: 5px; */
   }
 
   .pet-list__items {
@@ -579,29 +463,132 @@ tr:nth-child(even) {
   }
 }
 
-/* Remove
-.table-container {
-    height: 150px;
-    overflow: hidden;
+/* @media only screen and (max-width: 48rem) {
+  body {
+    background: red;
+  }
+} */
+
+/* Mobile Media Query */
+@media only screen and (max-width: 40rem) {
+  header.container {
+    margin-bottom: 1.25rem;
   }
 
-  .fixed_header {
+  main.container {
+    margin-top: 0;
+  }
+  .logo {
+    margin-left: 0;
+    font-size: 2rem;
+  }
+
+  .btn-logout {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+
+  .form-btns {
+    right: -33%;
+  }
+
+  /* Register pet popup */
+
+  .open-button {
+    position: relative;
+    top: 0%;
+    padding: 1rem;
+    width: 12.3rem;
+    margin-top: 0;
+  }
+  .form-popup {
+    position: absolute;
+    top: 4%;
+    left: 0%;
+    max-height: 450px;
+  }
+
+  .pet-list {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    margin: 3rem auto;
     width: 100%;
-    max-width: 500px;
-    height: 400px;
-    overflow-y: auto;
-    border: 2px solid blue;
-    font-size: 1.1rem;
   }
 
-  thead {
-    position: sticky;
+  .pet-list__item {
+    width: 100%;
+    max-width: 250px;
+    padding-top: 1.2rem;
+    margin-right: 0;
+    margin-bottom: 1rem;
+    padding-left: 1.2rem;
+    font-size: 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    outline: 1px solid #f1f1f1;
   }
 
-  tbody {
-    height: 100px;
-    overflow-y: auto;
-    overflow-x: hidden;
+  .pet-list__item--image img {
+    width: 12.5rem;
+    height: 12.5rem;
+    margin-bottom: 0;
   }
 
-*/
+  .pet-list__items {
+    font-size: 1.4rem;
+    width: 100%;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+
+  /* Notes Section  */
+
+  .notes {
+    position: relative;
+  }
+  /* .notes-box {
+    position: relative;
+  } */
+  .note-button {
+    position: absolute;
+    bottom: 8%;
+    /* top: 84%; */
+    /* right: 0%; */
+    right: 0%;
+    width: 60px;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+  }
+  .note-popup {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 28%;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+    border-radius: 4px;
+    max-width: 250px;
+    max-height: 450px;
+  }
+
+  .notes h2 {
+    font-size: var(--fs-600);
+    font-weight: var(--fw-bold);
+  }
+
+  .table-wrapper {
+    width: 100%;
+  }
+
+  table {
+    font-size: 1rem;
+  }
+}

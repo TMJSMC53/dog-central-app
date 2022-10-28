@@ -68,7 +68,6 @@
 * {
   margin: 0;
   padding: 0;
-  font: inherit;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -96,7 +95,7 @@ body {
   font-size: 1.4rem;
   overflow-x: hidden;
   min-height: 110vh;
-  max-width: 1440px;
+  /* max-width: 1440px; */
 }
 
 /* A elements that don't have a class get default styles */
@@ -305,12 +304,13 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: space-between;
-  padding: 5rem 2.5rem;
+  padding: 5rem 3rem 5rem 2.5rem;
   margin-top: 5rem;
   /* min-height: 42%; */
 }
 
 .footer-logo {
+  display: inline-block;
   margin: 0;
   font-size: 3.5rem;
 }
@@ -336,9 +336,80 @@ h1 {
   color: lightgrey;
 }
 
-/* login page */
+/* Larger Screens */
+@media only screen and (min-width: 1441px) and (max-width: 2000px) {
+  body {
+    width: 100%;
+  }
 
-@media (max-width: 35rem) {
+  .logo {
+    font-size: 6rem;
+  }
+
+  .nav-link {
+    font-size: 2.4rem;
+  }
+
+  .primary-header {
+    padding-right: 0;
+  }
+
+  .login {
+    margin-left: 3rem;
+  }
+
+  .btn-signup,
+  .btn-login {
+    font-size: 1.6rem;
+    padding: 2rem 3rem;
+  }
+}
+
+/* Tablets */
+@media only screen and (min-width: 561px) and (max-width: 1200px) {
+  .logo {
+    font-size: 2rem;
+  }
+
+  .nav-link {
+    font-size: 1.4rem;
+  }
+
+  .btn-logout {
+    display: block;
+    border: 0;
+    padding: 2rem 1rem 3rem 1rem;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    min-height: 52vh;
+  }
+
+  .footer-title {
+    margin: 4.5rem 0;
+  }
+
+  .footer-box {
+    /* border: 2px solid aliceblue; */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 0.5px solid rgba(211, 211, 211, 0.5);
+  }
+  .footer-box a {
+    margin-bottom: 0;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Mobile Devices */
+@media only screen and (max-width: 40rem) {
   .primary-header {
     margin: 1rem;
     display: flex;
@@ -370,8 +441,14 @@ h1 {
     color: var(--clr-accent-100);
   }
 
+  .nav-link {
+    margin-right: 0;
+  }
+
   .login {
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .mobile-nav-toggle {
@@ -434,47 +511,5 @@ h1 {
     opacity: 0.5;
     font-size: 1.5rem;
     text-transform: uppercase;
-  }
-}
-
-@media only screen and (min-width: 561px) and (max-width: 1200px) {
-  .logo {
-    font-size: 2rem;
-  }
-
-  .nav-link {
-    font-size: 1.4rem;
-  }
-
-  .btn-logout {
-    display: block;
-    border: 0;
-    padding: 2rem 1rem 3rem 1rem;
-    font-size: 1.8rem;
-    text-align: center;
-  }
-
-  .footer {
-    display: flex;
-    flex-direction: column;
-    min-height: 52vh;
-  }
-
-  .footer-title {
-    margin: 4.5rem 0;
-  }
-
-  .footer-box {
-    /* border: 2px solid aliceblue; */
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
-    border-bottom: 0.5px solid rgba(211, 211, 211, 0.5);
-  }
-  .footer-box a {
-    margin-bottom: 0;
-    justify-content: center;
-    align-items: center;
   }
 }
