@@ -27,19 +27,19 @@
 
 @media (min-width: 35rem) {
   :root {
-    --fs-800: 5rem;
+    --fs-800: 4rem;
     --fs-750: 2.8rem;
     --fs-600: 1.5rem;
     --fs-500: 1.25rem;
     --fs-400: 1.4rem;
-    --fs-300: 2rem;
+    --fs-300: 1.6rem;
   }
 }
 
 @media (min-width: 44rem) {
   :root {
     --fs-800: 6.25rem;
-    --fs-750: 5rem;
+    --fs-750: 4rem;
     --fs-600: 1.5rem;
     --fs-500: 1.25rem;
     --fs-400: 3rem;
@@ -140,7 +140,7 @@ a {
 }
 
 .logo {
-  font-size: 5rem;
+  font-size: 3rem;
   margin-left: 0;
   margin-bottom: 0;
 }
@@ -357,7 +357,7 @@ main {
 .note-popup {
   display: none;
   position: absolute;
-  top: 18%;
+  top: 42%;
   right: 1%;
   border: 3px solid #f1f1f1;
   z-index: 9;
@@ -372,6 +372,20 @@ main {
   overflow-x: hidden;
   overflow-y: auto;
   outline: none;
+}
+
+#petId {
+  width: 224px;
+  height: 41px;
+  padding: 1rem 1.5rem 1.2rem 1.5rem;
+  margin-bottom: 1.2rem;
+  opacity: 1;
+  background: rgb(241, 241, 241);
+  color: var(--clr-primary-400);
+}
+
+select > option {
+  font-size: 1.2rem;
 }
 
 table {
@@ -408,7 +422,7 @@ tr:nth-child(even) {
 }
 
 /* Tablets Media Query */
-@media only screen and (min-width: 1024px) and (max-width: 1324px) {
+@media only screen and (max-width: 1324px) {
   .container {
     margin-bottom: 10rem;
   }
@@ -429,23 +443,24 @@ tr:nth-child(even) {
   }
 
   .form-btns {
-    top: 0;
+    top: -11%;
     left: -6%;
   }
   .pet-list {
     margin: 8rem 0 3rem 0;
-    width: 100%;
+    padding-left: 2.5rem;
+    width: 96%;
   }
 
   .pet-list__item--image img {
-    width: 150px;
-    height: 150px;
+    width: 127px;
+    height: 127px;
   }
   .pet-list__item {
     width: 100%;
-    max-width: 375px;
+    max-width: 300px;
     flex-direction: row;
-    margin-right: 2rem;
+    margin-right: 0;
     margin-bottom: 2rem;
     padding-left: 1.2rem;
     /* outline: 1px solid #f1f1f1;
@@ -463,12 +478,6 @@ tr:nth-child(even) {
   }
 }
 
-/* @media only screen and (max-width: 48rem) {
-  body {
-    background: red;
-  }
-} */
-
 /* Mobile Media Query */
 @media only screen and (max-width: 40rem) {
   header.container {
@@ -477,6 +486,7 @@ tr:nth-child(even) {
 
   main.container {
     margin-top: 0;
+    margin-bottom: 5rem;
   }
   .logo {
     margin-left: 0;
@@ -523,6 +533,7 @@ tr:nth-child(even) {
     width: 100%;
     max-width: 250px;
     padding-top: 1.2rem;
+    margin-top: 0;
     margin-right: 0;
     margin-bottom: 1rem;
     padding-left: 1.2rem;

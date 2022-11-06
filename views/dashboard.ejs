@@ -52,12 +52,16 @@
               placeholder="Notes section for dog events and reminders"></textarea>
             <label class="date" for="due"><input type="date" name="due" value="" id="due" min="2005-01-01"
                 max="2050-12-31" required></label>
-            <label for="petName"><input type="text" value="" name="petName" id="petName" placeholder="Pet Name"
-                required></label>
+            <select name="petId" id="petId">
+              <% for (const pet of petInfo) { %>
+                <option value="<%= pet._id %>">
+                  <%=pet.name %>
+                </option>
+                <% } %>
+            </select>
             <button type="submit" value="Submit" class="btn bg-light">Add Note</button>
             <button type="button" class="btn cancel" onclick="closeNoteForm()">Close</button>
           </form>
-
         </section>
 
 

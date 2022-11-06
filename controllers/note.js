@@ -4,10 +4,8 @@ const Pet = require("../models/Pet");
 module.exports = {
   addNote: async (req, res) => {
     try {
-      const pet = await Pet.findOne({ name: req.body.petName });
-
       await Note.create({
-        pet_id: pet._id,
+        pet_id: req.body.petId,
         event: req.body.event,
         date: req.body.date,
         notes: req.body.notes,

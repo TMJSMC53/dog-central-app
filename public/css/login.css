@@ -307,7 +307,7 @@ form label {
 }
 
 .btn-login {
-  padding: 0.5rem 1rem 0.5rem 1rem;
+  padding: 1rem 2rem;
   border-radius: 8px;
   letter-spacing: 4px;
   background: var(--clr-accent-400);
@@ -350,7 +350,7 @@ form label {
   }
 }
 
-@media (max-width: 35rem) {
+@media (max-width: 40rem) {
   #login-modal {
     top: -13%;
     right: 120%;
