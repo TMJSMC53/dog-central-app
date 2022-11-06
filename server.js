@@ -41,7 +41,7 @@ app.use("/note", noteRoutes);
 
 //Start Server
 app.listen(process.env.PORT || 5500, () =>
-  console.log(`Server running on port ${PORT}`)
+  console.log(`Server running on port ${PORT}, everything's good.`)
 );
 
 process.on("unhandledRejection", (err) => {
