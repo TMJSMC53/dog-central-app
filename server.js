@@ -40,7 +40,9 @@ app.use("/pet", addPetRoutes);
 app.use("/note", noteRoutes);
 
 //Start Server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(process.env.PORT || 5500, () =>
+  console.log(`Server running on port ${PORT}`)
+);
 
 process.on("unhandledRejection", (err) => {
   console.log(`An error occurred: ${err.message}`);
