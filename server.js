@@ -6,13 +6,18 @@ const cors = require("cors");
 const PORT = 5500;
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
+const { createEngine } = require("express-react-views");
 const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
 const authRoutes = require("./routes/auth");
 const addPetRoutes = require("./routes/add_pet");
 const noteRoutes = require("./routes/note");
 
-app.set("view engine", "ejs");
+app.engine(
+  "jsx",
+  createEngine({ beautify: process.env.NODE_ENV !== "production" })
+);
+app.set("view engine", "jsx");
 
 app.use(cors());
 
