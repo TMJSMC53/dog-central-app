@@ -107,7 +107,7 @@ export default function Homepage() {
                     </svg>
                   </div>
                   <p className="ml-16 lg:text-2xl  font-medium leading-6 text-primary">
-                    Food & treats{" "}
+                    Food & treats
                   </p>
                 </dt>
                 <dd className="mt-2 ml-16 text-lg text-gray-500">

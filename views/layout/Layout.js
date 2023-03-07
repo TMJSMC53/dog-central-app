@@ -2,7 +2,7 @@ import React from "react";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 
-export default function Homepage({ children }) {
+export default function Layout({ children }) {
   return (
     <html lang="en" data-theme="light">
       <head>
@@ -10,6 +10,11 @@ export default function Homepage({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
         <script src="https://cdn.tailwindcss.com"></script>
+        {/*Font awesome */}
+        <script
+          src="https://kit.fontawesome.com/bc79913c77.js"
+          crossOrigin="anonymous"
+        ></script>
 
         <link rel="stylesheet" href="/css/style.css" />
 
@@ -21,7 +26,7 @@ export default function Homepage({ children }) {
         <Header />
         <main>{children}</main>
         <Footer />
-        <script src="main.js"></script>
+        <script src="/main.js"></script>
       </body>
     </html>
   );
