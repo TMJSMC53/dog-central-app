@@ -17,6 +17,7 @@ export default function Layout({ children }) {
         ></script>
 
         <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="/css/dashboard.css" />
 
         <title>Home page</title>
       </head>
@@ -27,6 +28,7 @@ export default function Layout({ children }) {
         <main>{children}</main>
         <Footer />
         <script src="/main.js"></script>
+        <script src="/routes/auth.js.js"></script>
       </body>
     </html>
   );
