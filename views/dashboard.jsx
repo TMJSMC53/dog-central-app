@@ -43,7 +43,11 @@ export default function Dashboard({ ownerName, petInfo, petNotes }) {
         <section className="notes">
           <div className="notes-box">
             <h2 className="text-primary fs-750 fw-bold">Information Central</h2>
-            <button className="note-button bg-light text-accent-100">
+            <button
+              type="button"
+              className="note-button bg-light text-accent-100"
+              onClick={() => openNoteForm()}
+            >
               <span className="mas">+</span>
               Note
             </button>
@@ -59,7 +63,7 @@ export default function Dashboard({ ownerName, petInfo, petNotes }) {
               <label htmlFor="event">
                 <input
                   type="text"
-                  defaultValue=""
+                  defaultValue="event"
                   name="event"
                   id="event"
                   placeholder="Event"
@@ -70,7 +74,7 @@ export default function Dashboard({ ownerName, petInfo, petNotes }) {
                 <input
                   type="date"
                   name="date"
-                  defaultValue=""
+                  defaultValue="date"
                   min="2005-01-01"
                   max="2050-12-31"
                   required
@@ -85,7 +89,7 @@ export default function Dashboard({ ownerName, petInfo, petNotes }) {
                 <input
                   type="date"
                   name="due"
-                  defaultValue=""
+                  defaultValue="due"
                   id="due"
                   min="2005-01-01"
                   max="2050-12-31"
@@ -103,7 +107,7 @@ export default function Dashboard({ ownerName, petInfo, petNotes }) {
               <button
                 type="button"
                 className="btn cancel"
-                // onClick="closeNoteForm()"
+                onClick={() => closeNoteForm()}
               >
                 Close
               </button>

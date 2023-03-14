@@ -20,7 +20,7 @@ export default function Pet({ petInfo }) {
             <input
               type="text"
               name="petName"
-              defaultValue=""
+              defaultValue="petName"
               id="petName"
               placeholder="Name"
               required
@@ -31,7 +31,7 @@ export default function Pet({ petInfo }) {
               id="breed"
               type="text"
               name="breed"
-              defaultValue=""
+              defaultValue="breed"
               placeholder="Breed"
               required
             />
@@ -41,7 +41,7 @@ export default function Pet({ petInfo }) {
             <input
               type="date"
               name="birthday"
-              defaultValue=""
+              defaultValue="birthday"
               id="birthday"
               min="2005-01-01"
               max="2050-12-31"
@@ -62,7 +62,7 @@ export default function Pet({ petInfo }) {
               type="number"
               name="weight"
               id="weight"
-              defaultValue=""
+              defaultValue="weight"
               placeholder="Enter weight in kilograms"
               step="0.01"
               required
@@ -79,8 +79,8 @@ export default function Pet({ petInfo }) {
 
       <ul className="pet-list">
         {petInfo.map((pet, i) => (
-          <div>
-            <li className="pet-list__item" key={pet.id}>
+          <div key={pet.id}>
+            <li className="pet-list__item">
               <section className="pet-list__item--image item">
                 <img
                   className="img"
@@ -138,11 +138,15 @@ export default function Pet({ petInfo }) {
                 method="POST"
                 encType="multipart/form-data"
               >
-                <input type="text" value={pet.name} name="name" />
-                <input type="text" value={pet.breed} name="breed" />
-                <input type="date" value={pet.birthday} name="birthday" />
+                <input type="text" defaultValue={pet.name} name="name" />
+                <input type="text" defaultValue={pet.breed} name="breed" />
+                <input
+                  type="date"
+                  defaultValue={pet.birthday}
+                  name="birthday"
+                />
 
-                <input type="text" value={pet.weight} name="weight" />
+                <input type="text" defaultValue={pet.weight} name="weight" />
                 <button
                   type="submit"
                   value="Submit"
@@ -153,7 +157,7 @@ export default function Pet({ petInfo }) {
                 </button>
                 <button
                   type="button"
-                  className="btn cancel closeUpdateForm"
+                  className="btn cancel"
                   // onclick={closeUpdateForm(i)}
                   data-index={i}
                 >
