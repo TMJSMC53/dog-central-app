@@ -28,7 +28,7 @@ export default function Layout({ children }) {
         <main>{children}</main>
         <Footer />
         <script src="/main.js"></script>
-        <script src="/routes/auth.js.js"></script>
+        <script src="/routes/auth.js"></script>
       </body>
     </html>
   );

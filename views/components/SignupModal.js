@@ -2,7 +2,7 @@ import React from "react";
 
 export default function SignupModal() {
   return (
-    <div id="login-modal" class="login-modal">
+    <div id="login-modal" className="login-modal">
       <div className="modal">
         <div className="top-form">
           <div className="close-modal">

@@ -1,12 +1,9 @@
 import React from "react";
 
-export default function Pet() {
+export default function Pet({ petInfo }) {
   return (
     <>
-      <button
-        className="open-button bg-dark text-accent-100"
-        onclick="openForm()"
-      >
+      <button className="open-button bg-dark text-accent-100">
         Register Pet
       </button>
 
@@ -15,43 +12,43 @@ export default function Pet() {
           className="form-container"
           method="POST"
           action="/pet/createPet"
-          enctype="multipart/form-data"
+          encType="multipart/form-data"
         >
           <div className="error" style={{ backgroundColor: "red" }}></div>
           <br />
-          <label for="name">
+          <label htmlFor="name">
             <input
               type="text"
               name="petName"
-              value=""
+              defaultValue=""
               id="petName"
               placeholder="Name"
               required
             />
           </label>
-          <label for="breed">
+          <label htmlFor="breed">
             <input
               id="breed"
               type="text"
               name="breed"
-              value=""
+              defaultValue=""
               placeholder="Breed"
               required
             />
           </label>
-          <label className="birthday" for="birthday">
+          <label className="birthday" htmlFor="birthday">
             Birthday:{" "}
             <input
               type="date"
               name="birthday"
-              value=""
+              defaultValue=""
               id="birthday"
               min="2005-01-01"
               max="2050-12-31"
               required
             />
           </label>
-          <label for="imgUpload">
+          <label htmlFor="imgUpload">
             <input
               type="file"
               id="image"
@@ -60,30 +57,30 @@ export default function Pet() {
               required
             />
           </label>
-          <label for="weight">
+          <label htmlFor="weight">
             <input
               type="number"
               name="weight"
               id="weight"
-              value="weight"
+              defaultValue=""
               placeholder="Enter weight in kilograms"
               step="0.01"
               required
             />
           </label>
-          <button type="submit" value="Submit" class="btn bg-dark">
+          <button type="submit" value="Submit" className="btn bg-dark">
             Add Pet
           </button>
-          <button type="button" class="btn cancel" onclick={closeForm()}>
+          <button type="button" className="btn cancel">
             Close
           </button>
         </form>
       </section>
 
       <ul className="pet-list">
-        {petInfo.forEach((pet, i) => (
+        {petInfo.map((pet, i) => (
           <div>
-            <li className="pet-list__item">
+            <li className="pet-list__item" key={pet.id}>
               <section className="pet-list__item--image item">
                 <img
                   className="img"
@@ -93,18 +90,20 @@ export default function Pet() {
                 <section className="form-btns">
                   <button
                     type="submit"
-                    class="btn bg-light fas fa-edit"
-                    onclick={updateForm(i)}
+                    className="btn bg-light fas fa-edit"
+                    data-index={i}
+                    // onclick={updateForm(i)}
                   ></button>
 
                   <form
-                    action="/pet/deletePet/{pet._id}?_method=DELETE"
+                    action="/pet/deletePet/pet._id?_method=DELETE"
                     method="POST"
                     className="col-3"
                   >
                     <button
                       className="btn bg-dark fa fa-trash"
                       type="submit"
+                      data-index={i}
                     ></button>
                   </form>
                 </section>
@@ -114,12 +113,12 @@ export default function Pet() {
                   <span className="pet-list__item--title"> Name:</span>
                   {pet.name}
                 </section>
-                <section class="pet-list__item--breed">
+                <section className="pet-list__item--breed">
                   <span className="pet-list__item--title">Breed:</span>
                   {pet.breed}
                 </section>
                 <section className="pet-list__item--birthday">
-                  <span class="pet-list__item--title">Birthday:</span>
+                  <span className="pet-list__item--title">Birthday:</span>
                   {new Date(pet.birthday).toLocaleDateString("en-US", {
                     timeZone: "UTC",
                   })}
@@ -137,20 +136,26 @@ export default function Pet() {
                 className="form-container col-3"
                 action="/pet/updatePet/{pet._id}?_method=PUT"
                 method="POST"
-                enctype="multipart/form-data"
+                encType="multipart/form-data"
               >
                 <input type="text" value={pet.name} name="name" />
                 <input type="text" value={pet.breed} name="breed" />
                 <input type="date" value={pet.birthday} name="birthday" />
 
                 <input type="text" value={pet.weight} name="weight" />
-                <button type="submit" value="Submit" className="btn bg-dark">
+                <button
+                  type="submit"
+                  value="Submit"
+                  className="btn bg-dark"
+                  data-index={i}
+                >
                   Update
                 </button>
                 <button
                   type="button"
-                  class="btn cancel"
-                  onclick={closeUpdateForm(i)}
+                  className="btn cancel closeUpdateForm"
+                  // onclick={closeUpdateForm(i)}
+                  data-index={i}
                 >
                   Close
                 </button>
