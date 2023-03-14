@@ -7,7 +7,7 @@ document.querySelector(".open-button").addEventListener("click", openForm);
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
-document.querySelector(".closeForm").addEventListener("click", closeForm);
+document.querySelector(".cancel").addEventListener("click", closeForm);
 
 function updateForm() {
   document.querySelectorAll(".updateForm")[i].style.display = "block";

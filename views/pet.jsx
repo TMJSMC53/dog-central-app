@@ -168,7 +168,6 @@ export default function Pet({ petInfo }) {
           </div>
         ))}
       </ul>
-      <script src="/pet.js"></script>
     </>
   );
 }
