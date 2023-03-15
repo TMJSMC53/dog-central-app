@@ -20,7 +20,7 @@ export default function Pet({ petInfo }) {
             <input
               type="text"
               name="petName"
-              defaultValue="petName"
+              defaultValue=""
               id="petName"
               placeholder="Name"
               required
@@ -31,7 +31,7 @@ export default function Pet({ petInfo }) {
               id="breed"
               type="text"
               name="breed"
-              defaultValue="breed"
+              defaultValue=""
               placeholder="Breed"
               required
             />
