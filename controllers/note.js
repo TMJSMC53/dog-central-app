@@ -4,6 +4,7 @@ const Pet = require("../models/Pet");
 module.exports = {
   addNote: async (req, res) => {
     try {
+      console.log(req.body, "note");
       await Note.create({
         pet_id: req.body.petId,
         event: req.body.event,

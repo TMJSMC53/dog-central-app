@@ -24,11 +24,14 @@ router.get("/dashboard", ownerAuth, async (req, res) => {
   let notes = [];
   for (let pet of pets) {
     let petNotes = await Note.find({ pet_id: pet._id }).sort({ due: 1 }).lean();
+    console.log(petNotes, "Hello2");
     for (let note of petNotes) {
       note.pet = pet;
     }
     notes.push(...petNotes);
   }
+
+  console.log(notes, "Hello");
   res.render("dashboard", {
     ownerName: req.owner,
     petInfo: pets,

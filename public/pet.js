@@ -9,24 +9,23 @@ function closeForm() {
 }
 document.querySelector(".cancel").addEventListener("click", closeForm);
 
-function updateForm() {
+function updateForm(i) {
   document.querySelectorAll(".updateForm")[i].style.display = "block";
 }
 
-document.querySelectorAll(".updateForm").forEach((button) => {
-  button.addEventListener("click", () => {
-    updateForm(+button.dataset.index);
-  });
+let button = document.getElementById("updateFormButton");
+button.addEventListener("click", () => {
+  updateForm(+button.dataset.index);
 });
 
 function closeUpdateForm(i) {
   document.querySelectorAll(".updateForm")[i].style.display = "none";
 }
 
-document.querySelectorAll(".closeUpdateForm").forEach((button) => {
-  button.addEventListener("click", () => {
-    closeUpdateForm(+button.dataset.index);
-  });
+let closeUpdateFormBtn = document.getElementById("closeUpdateForm");
+
+closeUpdateFormBtn.addEventListener("click", () => {
+  closeUpdateForm(+button.dataset.index);
 });
 
 function openNoteForm() {
@@ -38,4 +37,6 @@ document.querySelector(".note-button").addEventListener("click", openNoteForm);
 function closeNoteForm() {
   document.getElementById("addNote").style.display = "none";
 }
-document.querySelector(".cancel").addEventListener("click", closeNoteForm);
+document
+  .querySelector("#closeNoteFormBtn")
+  .addEventListener("click", closeNoteForm);

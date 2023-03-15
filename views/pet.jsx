@@ -90,13 +90,14 @@ export default function Pet({ petInfo }) {
                 <section className="form-btns">
                   <button
                     type="submit"
+                    id="updateFormButton"
                     className="btn bg-light fas fa-edit"
                     data-index={i}
                     // onclick={updateForm(i)}
                   ></button>
 
                   <form
-                    action="/pet/deletePet/pet._id?_method=DELETE"
+                    action={`/pet/deletePet/${pet._id}?_method=DELETE`}
                     method="POST"
                     className="col-3"
                   >
@@ -134,7 +135,7 @@ export default function Pet({ petInfo }) {
             <section className="updateForm edit-popup">
               <form
                 className="form-container col-3"
-                action="/pet/updatePet/{pet._id}?_method=PUT"
+                action={`/pet/updatePet/${pet._id}?_method=PUT`}
                 method="POST"
                 encType="multipart/form-data"
               >
@@ -157,6 +158,7 @@ export default function Pet({ petInfo }) {
                 </button>
                 <button
                   type="button"
+                  id="closeUpdateForm"
                   className="btn cancel"
                   // onclick={closeUpdateForm(i)}
                   data-index={i}

@@ -3,6 +3,7 @@ import Footer from "./components/Footer";
 import Pet from "./pet.jsx";
 
 export default function Dashboard({ ownerName, petInfo, petNotes }) {
+  console.log(petNotes, "Frontend");
   return (
     <div>
       <html lang="en" data-theme="light"></html>
@@ -98,7 +99,9 @@ export default function Dashboard({ ownerName, petInfo, petNotes }) {
               </label>
               <select name="petId" id="petId">
                 {petInfo.map((pet) => (
-                  <option key={pet._id}>{pet.name}</option>
+                  <option key={pet._id} value={pet._id}>
+                    {pet.name}
+                  </option>
                 ))}
               </select>
               <button type="submit" value="Submit" className="btn bg-light">
@@ -106,8 +109,9 @@ export default function Dashboard({ ownerName, petInfo, petNotes }) {
               </button>
               <button
                 type="button"
+                id="closeNoteFormBtn"
                 className="btn cancel"
-                onClick={() => closeNoteForm()}
+                // onClick={() => closeNoteForm()}
               >
                 Close
               </button>
@@ -125,7 +129,7 @@ export default function Dashboard({ ownerName, petInfo, petNotes }) {
                 <th></th>
               </thead>
               <tbody className="fs-300">
-                {petNotes.map((note, i) => {
+                {petNotes.map((note, i) => (
                   <tr>
                     <td>{note.event}</td>
                     <td>
@@ -142,7 +146,7 @@ export default function Dashboard({ ownerName, petInfo, petNotes }) {
                     <td>{note.pet.name}</td>
                     <td>
                       <form
-                        action="/note/deleteNote/{note._id }?_method=DELETE"
+                        action={`/note/deleteNote/${note._id}?_method=DELETE`}
                         method="POST"
                         className="col-3"
                       >
@@ -152,8 +156,8 @@ export default function Dashboard({ ownerName, petInfo, petNotes }) {
                         ></button>
                       </form>
                     </td>
-                  </tr>;
-                })}
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
