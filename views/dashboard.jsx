@@ -107,12 +107,7 @@ export default function Dashboard({ ownerName, petInfo, petNotes }) {
               <button type="submit" value="Submit" className="btn bg-light">
                 Add Note
               </button>
-              <button
-                type="button"
-                id="closeNoteFormBtn"
-                className="btn cancel"
-                // onClick={() => closeNoteForm()}
-              >
+              <button type="button" className="btn cancel closeNoteFormBtn">
                 Close
               </button>
             </form>
@@ -130,33 +125,35 @@ export default function Dashboard({ ownerName, petInfo, petNotes }) {
               </thead>
               <tbody className="fs-300">
                 {petNotes.map((note, i) => (
-                  <tr>
-                    <td>{note.event}</td>
-                    <td>
-                      {new Date(note.date).toLocaleDateString("en-US", {
-                        timeZone: "UTC",
-                      })}
-                    </td>
-                    <td>{note.notes}</td>
-                    <td>
-                      {new Date(note.due).toLocaleDateString("en-US", {
-                        timeZone: "UTC",
-                      })}
-                    </td>
-                    <td>{note.pet.name}</td>
-                    <td>
-                      <form
-                        action={`/note/deleteNote/${note._id}?_method=DELETE`}
-                        method="POST"
-                        className="col-3"
-                      >
-                        <button
-                          className="btn bg-dark fa fa-trash"
-                          type="submit"
-                        ></button>
-                      </form>
-                    </td>
-                  </tr>
+                  <div key={note._id}>
+                    <tr>
+                      <td>{note.event}</td>
+                      <td>
+                        {new Date(note.date).toLocaleDateString("en-US", {
+                          timeZone: "UTC",
+                        })}
+                      </td>
+                      <td>{note.notes}</td>
+                      <td>
+                        {new Date(note.due).toLocaleDateString("en-US", {
+                          timeZone: "UTC",
+                        })}
+                      </td>
+                      <td>{note.pet.name}</td>
+                      <td>
+                        <form
+                          action={`/note/deleteNote/${note._id}?_method=DELETE`}
+                          method="POST"
+                          className="col-3"
+                        >
+                          <button
+                            className="btn bg-dark fa fa-trash"
+                            type="submit"
+                          ></button>
+                        </form>
+                      </td>
+                    </tr>
+                  </div>
                 ))}
               </tbody>
             </table>

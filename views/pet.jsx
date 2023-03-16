@@ -90,8 +90,7 @@ export default function Pet({ petInfo }) {
                 <section className="form-btns">
                   <button
                     type="submit"
-                    id="updateFormButton"
-                    className="btn bg-light fas fa-edit"
+                    className="btn bg-light fas fa-edit updateFormButton"
                     data-index={i}
                     // onclick={updateForm(i)}
                   ></button>
@@ -158,8 +157,7 @@ export default function Pet({ petInfo }) {
                 </button>
                 <button
                   type="button"
-                  id="closeUpdateForm"
-                  className="btn cancel"
+                  className="btn cancel closeUpdateForm"
                   // onclick={closeUpdateForm(i)}
                   data-index={i}
                 >
