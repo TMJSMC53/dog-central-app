@@ -1,5 +1,5 @@
 import React from "react";
-import Hero from "../client/src/components/Hero";
+import Hero from "./components/Hero";
 import Layout from "./layout/Layout";
 
 export default function Homepage() {
