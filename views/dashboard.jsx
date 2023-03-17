@@ -151,6 +151,64 @@ export default function Dashboard({ ownerName, petInfo, petNotes }) {
                             type="submit"
                           ></button>
                         </form>
+                        <button
+                          type="submit"
+                          className="btn bg-light fas fa-edit updateNoteFormButton"
+                          data-index={i}
+                        ></button>
+                        {/* update note section */}
+
+                        <section className="updateNoteForm edit-popup">
+                          <form
+                            className="form-container col-3"
+                            action={`/note/updateNote/${note._id}?_method=PUT`}
+                            method="POST"
+                          >
+                            <input
+                              type="text"
+                              defaultValue={note.event}
+                              name="event"
+                            />
+                            <input
+                              type="date"
+                              defaultValue={
+                                note.date.toISOString().split("T")[0]
+                              }
+                              name="date"
+                            />
+
+                            <input
+                              type="text"
+                              defaultValue={note.notes}
+                              name="notes"
+                            />
+
+                            <input
+                              type="date"
+                              defaultValue={
+                                note.due.toISOString().split("T")[0]
+                              }
+                              name="due"
+                            />
+
+                            <button
+                              type="submit"
+                              value="Submit"
+                              className="btn bg-dark"
+                              data-index={i}
+                            >
+                              Update
+                            </button>
+                            <button
+                              type="button"
+                              className="btn cancel closeUpdateNoteForm"
+                              // onclick={closeUpdateForm(i)}
+                              data-index={i}
+                            >
+                              Close
+                            </button>
+                          </form>
+                        </section>
                       </td>
                     </tr>
                   </div>

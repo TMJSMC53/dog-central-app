@@ -142,7 +142,7 @@ export default function Pet({ petInfo }) {
                 <input type="text" defaultValue={pet.breed} name="breed" />
                 <input
                   type="date"
-                  defaultValue={pet.birthday}
+                  defaultValue={pet.birthday.toISOString().split("T")[0]}
                   name="birthday"
                 />
 

@@ -1,5 +1,4 @@
 const Note = require("../models/Note");
-const Pet = require("../models/Pet");
 
 module.exports = {
   addNote: async (req, res) => {
@@ -16,6 +15,32 @@ module.exports = {
       res.redirect("/auth/dashboard");
     } catch (err) {
       console.log("ERROR: Register note");
+      console.log(err);
+    }
+  },
+
+  updateNote: async (req, res) => {
+    console.log(req.body);
+    try {
+      const id = req.params.id;
+      console.log(id);
+      Note.findByIdAndUpdate(
+        id,
+        {
+          event: req.body.event,
+          date: req.body.date,
+          notes: req.body.notes,
+          due: req.body.due,
+        },
+
+        (err, results) => {
+          console.log(results);
+          if (err) return res.status(500).send(err);
+          console.log("Note updated");
+          res.redirect("/auth/dashboard");
+        }
+      );
+    } catch (err) {
       console.log(err);
     }
   },

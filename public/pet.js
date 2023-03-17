@@ -45,3 +45,28 @@ function closeNoteForm() {
 document
   .querySelector(".closeNoteFormBtn")
   .addEventListener("click", closeNoteForm);
+
+// Note section
+function updateNoteForm(i) {
+  document.querySelectorAll(".updateNoteForm")[i].style.display = "block";
+}
+
+let updateNoteBtns = document.querySelectorAll(".updateNoteFormButton");
+console.log(updateNoteBtns);
+updateNoteBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    updateNoteForm(+button.dataset.index);
+  });
+});
+
+function closeUpdateNoteForm(i) {
+  document.querySelectorAll(".updateNoteForm")[i].style.display = "none";
+}
+
+let closeUpdateNoteBtns = document.querySelectorAll(".closeUpdateNoteForm");
+
+closeUpdateNoteBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    closeUpdateNoteForm(+button.dataset.index);
+  });
+});
