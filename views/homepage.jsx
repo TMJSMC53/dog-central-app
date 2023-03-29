@@ -18,8 +18,8 @@ export default function Homepage() {
               Track your dog's need in one place
             </p>
             <p className="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-              Lorem ipsum dolor sit amet consect adipisicing elit. Possimus
-              magnam voluptatum cupiditate veritatis in accusamus quisquam.
+              Effortlessly Monitor Your Dog's Needs: Track Everything from
+              Grooming to Medication in One Centralized Location!
             </p>
           </div>
 
@@ -49,9 +49,8 @@ export default function Homepage() {
                   </p>
                 </dt>
                 <dd className="mt-2 ml-16 text-base text-gray-500">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Maiores impedit perferendis suscipit eaque, iste dolor
-                  cupiditate blanditiis ratione.
+                  Ensure Your Dog's Health and Happiness: Keep Track of their
+                  Vaccination Schedule with Ease!
                 </dd>
               </div>
 
@@ -80,9 +79,8 @@ export default function Homepage() {
                   </p>
                 </dt>
                 <dd className="mt-2 ml-16 text-lg text-gray-500">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Maiores impedit perferendis suscipit eaque, iste dolor
-                  cupiditate blanditiis ratione.
+                  Organize Health History: Store Vet Visit Information in One
+                  Convenient Place!
                 </dd>
               </div>
 
@@ -111,9 +109,9 @@ export default function Homepage() {
                   </p>
                 </dt>
                 <dd className="mt-2 ml-16 text-lg text-gray-500">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Maiores impedit perferendis suscipit eaque, iste dolor
-                  cupiditate blanditiis ratione.
+                  Treat Your Dog to the Best: Indulge with Delicious and
+                  Nutritious Food and Treats That Will Have Them Begging for
+                  More!
                 </dd>
               </div>
 
@@ -142,9 +140,8 @@ export default function Homepage() {
                   </p>
                 </dt>
                 <dd className="mt-2 ml-16 text-lg text-gray-500">
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Maiores impedit perferendis suscipit eaque, iste dolor
-                  cupiditate blanditiis ratione.
+                  Stay Connected: Get Real-Time Updates and Alerts with Our
+                  Convenient Mobile Notifications!
                 </dd>
               </div>
             </dl>
